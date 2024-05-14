@@ -21,7 +21,7 @@ public class Conexion {
     private static final String host = "jdbc:mariadb://localhost/";
     private static final String user = "lab";
     private static final String pass = "1234";
-    private static String bd = "universidadulp";
+    private static final String bd = "universidadulp";
     private static final String driver = "org.mariadb.jdbc.Driver";
     public static ArrayList<String> msjError = new ArrayList<String>();
 
