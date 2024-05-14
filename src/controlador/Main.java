@@ -1,5 +1,7 @@
 package controlador;
 
+import accesoADatos.Conexion;
+
 /**
  *
  * @author Nicolas
@@ -11,6 +13,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // Preubas para la etapa 1
+       
     }
     
 }
