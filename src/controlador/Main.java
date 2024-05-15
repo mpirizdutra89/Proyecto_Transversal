@@ -1,8 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
 package controlador;
+
+import accesoADatos.Conexion;
+import accesoADatos.AlumnoData;
+import entidades.Alumno;
+import java.time.LocalDate;
 
 /**
  *
@@ -14,7 +15,9 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        // Preubas para la etapa 1
+         //Alumno alumnos1=new Alumno(152659,"piriz","martin",LocalDate.of(1990, 12, 20),false);
+         //AlumnoData.guardarAlumno(alumnos1);
     }
     
 }
