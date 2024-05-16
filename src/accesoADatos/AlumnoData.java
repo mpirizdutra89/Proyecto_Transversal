@@ -15,9 +15,9 @@ import javax.swing.JOptionPane;
  * @author Nicolas
  */
 public class AlumnoData {
-     private static Alumno alumno;
+     private  Alumno alumno;
 
-    public static boolean guardarAlumno(Alumno alumno) {
+    public  boolean guardarAlumno(Alumno alumno) {
         String query = "INSERT INTO alumno (dni, apellido,nombre,fechaNacimiento,estado) VALUES (?,?,?,?,?)";
         
         boolean res = false; 
@@ -45,7 +45,7 @@ public class AlumnoData {
         return res;
     }
 
-    public static Alumno buscarAlumno(int id){
+    public  Alumno buscarAlumno(int id){
         alumno=null;
         PreparedStatement ps = null;
         String consulta="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE  idAlumno= ? and estado=1";
@@ -78,7 +78,7 @@ public class AlumnoData {
         return alumno;
     }
         
-    public static ArrayList<Alumno> listarAlumnos() {
+    public  ArrayList<Alumno> listarAlumnos() {
         ArrayList<Alumno> lista = new ArrayList<>();
         ResultSet res = null;
         alumno = null;
