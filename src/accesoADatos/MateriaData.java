@@ -16,9 +16,9 @@ import javax.swing.JOptionPane;
  */
 public class MateriaData {
 
-    private static Materia materia;
+    private  Materia materia;
 
-    public static boolean guardarAlumno(Materia materia) {
+    public  boolean guardarAlumno(Materia materia) {
         String query = "INSERT INTO materia (nombre, año, estado) VALUES (?,?,?)";
 
         boolean res = false;
@@ -47,7 +47,7 @@ public class MateriaData {
     }
     
     
-       public static Materia buscarAlumno(int id){
+       public  Materia buscarAlumno(int id){
         materia=null;
         PreparedStatement ps = null;
         String consulta="SELECT nombre,año,estado FROM materia WHERE  idMateria= ? and estado=1";
@@ -79,7 +79,7 @@ public class MateriaData {
     }
     
     
-    public static ArrayList<Materia> listarMateria(){
+    public  ArrayList<Materia> listarMateria(){
         ArrayList<Materia> lista=new ArrayList<>();
         materia=null;
         ResultSet res=null;
