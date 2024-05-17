@@ -17,6 +17,15 @@ public class Main {
      */
     public static void main(String[] args) {
      
+        AlumnoData aldata=new AlumnoData();
+        
+        aldata.listarAlumnos();
+        
+        
+        
+        //
+        Conexion.mostrarErrores();
+        
     }
     
 }
