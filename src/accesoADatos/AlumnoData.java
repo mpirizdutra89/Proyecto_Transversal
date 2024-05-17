@@ -30,7 +30,7 @@ public class AlumnoData {
         boolean res = false; 
         
             try {
-                PreparedStatement ps = Conexion.conec.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+                PreparedStatement ps = conec.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
                 ps.setInt(1, alumno.getDni());
                 ps.setString(2, alumno.getApellido());
                 ps.setString(3, alumno.getNombre());
@@ -58,7 +58,7 @@ public class AlumnoData {
         String consulta="SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE  idAlumno= ? and estado=1";
       
         try{
-             ps = Conexion.conec.prepareStatement(consulta);
+             ps = conec.prepareStatement(consulta);
              ps.setInt(1,id );
              ResultSet res = ps.executeQuery();
              if(res.next()){
