@@ -18,11 +18,11 @@ import java.util.ArrayList;
 public class Conexion {
 
     public static Connection conec = null;
-    private static final String host = "jdbc:mariadb://localhost/";
-    private static final String user = "lab";
-    private static final String pass = "1234";
-    private static final String bd = "universidadulp";
-    private static final String driver = "org.mariadb.jdbc.Driver";
+    private static final String HOST = "jdbc:mariadb://localhost/";
+    private static final String USER = "lab";
+    private static final String PASS = "1234";
+    private static final String BD = "universidadulp";
+    private static final String DRIVER = "org.mariadb.jdbc.Driver";
     public static ArrayList<String> msjError = new ArrayList<String>();
 
     public static boolean getConexion() {
@@ -31,9 +31,9 @@ public class Conexion {
             if (servicioMysql()) {
 
                 try {
-                    Class.forName(driver);
+                    Class.forName(DRIVER);
                     
-                    conec = DriverManager.getConnection(host + bd, user, pass);
+                    conec = DriverManager.getConnection(HOST + BD, USER, PASS);
                     res = true;
                 } catch (NullPointerException | SQLException | ClassNotFoundException ex) {
                     res = false;
