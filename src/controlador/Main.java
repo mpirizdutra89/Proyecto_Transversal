@@ -2,9 +2,7 @@ package controlador;
 
 import accesoADatos.Conexion;
 import accesoADatos.AlumnoData;
-import entidades.Alumno;
-import java.time.LocalDate;
-import java.util.ArrayList;
+
 
 /**
  *
