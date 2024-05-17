@@ -16,17 +16,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-         Alumno alumnos1 = new Alumno(565, "piriz", "martin", LocalDate.of(1990, 12, 20), false);
-        AlumnoData pruebasAlumnos = new AlumnoData();
-        
-        
-        
-        pruebasAlumnos.guardarAlumno(alumnos1);
-        ArrayList<Alumno> listaAlumno = pruebasAlumnos.listarAlumnos();
-        System.out.println(listaAlumno.size());
-        for (Alumno alumno : listaAlumno) {
-            System.out.println(alumno);
-        }
+     
     }
     
 }
