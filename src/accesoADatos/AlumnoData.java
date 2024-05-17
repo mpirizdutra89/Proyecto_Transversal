@@ -12,6 +12,8 @@ import java.time.LocalDate;
 import javax.swing.JOptionPane;
 import java.sql.Connection;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -46,6 +48,7 @@ public class AlumnoData {
                 res = true;
             }
             ps.close();
+            rs.close();
         } catch (SQLException ex) {
             Conexion.msjError.add("Alumnos: guardarAlumno ->" + ex.getMessage());
         }
@@ -74,7 +77,8 @@ public class AlumnoData {
             } else {
                 JOptionPane.showMessageDialog(null, "No existe el alumno");
             }
-
+            ps.close();
+            res.close();
         } catch (SQLException ex) {
             Conexion.msjError.add("Alumnos: BuscarAlumno ->" + ex.getMessage());
         }
@@ -107,7 +111,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null, "No existe ese alumno");
             }
             ps.close();
-
+            rs.close();
         } catch (SQLException ex) {
             Conexion.msjError.add("Alumnos: BuscarAlumnoPorDni ->" + ex.getMessage());
         }
@@ -132,6 +136,7 @@ public class AlumnoData {
             if (resultado == 1) {
                 JOptionPane.showMessageDialog(null, "Alumno modificado con exito");
             }
+            ps.close();
         } catch (SQLException ex) {
             Conexion.msjError.add("Alumnos: modificarAlumno ->" + ex.getMessage());
         }
@@ -161,15 +166,28 @@ public class AlumnoData {
                 alumnos.add(alumno);
             }
             ps.close();
-
+            rs.close();
         } catch (SQLException ex) {
             Conexion.msjError.add("Alumnos: listarAlumnos ->" + ex.getMessage());
         }
         return alumnos;
     }
-    
-    public void eliminarAlumno(int id){
-    
+
+    public void eliminarAlumno(int id) {
+        PreparedStatement ps;
+        String consulta = "UPDATE alumno SET estado = 0 WHERE idAlumno = ?";
+
+        try {
+            ps = conec.prepareStatement(consulta);
+            ps.setInt(1, id);
+            int borrado = ps.executeUpdate();
+            if (borrado == 1) {
+                JOptionPane.showMessageDialog(null, "Alumno Borrado!!");
+            }
+            ps.close();
+        } catch (SQLException ex) {
+            Conexion.msjError.add("Alumnos: eliminarAlumno ->" + ex.getMessage());
+        }
     }
 
 }
