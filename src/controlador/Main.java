@@ -22,8 +22,14 @@ public class Main {
 //        Alumno agus = new Alumno(5,111222,"Rodrigo","Lucero",LocalDate.of(2000, 11, 5),true);
 //        aldata.modificarAlumno(agus);
         
-        
-        //aldata.listarAlumnos();
+//        System.out.println("Lista de alumnos");
+//        for(Alumno a:aldata.listarAlumnos()){
+//            System.out.println("DNI: " + a.getDni());
+//            System.out.println("Apellido: " + a.getApellido());
+//            System.out.println("Nombre: " + a.getNombre());
+//            System.out.println("Fecha de Nac: " + a.getFechaNacimiento());
+//            System.out.println("\n");   
+//        }
         
         
         
