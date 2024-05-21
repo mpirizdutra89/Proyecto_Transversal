@@ -18,32 +18,32 @@ import java.util.ArrayList;
 public class Conexion {
 
     public static Connection conec = null;
-    private static final String host = "jdbc:mariadb://localhost/";
-    private static final String user = "lab";
-    private static final String pass = "1234";
-    private static final String bd = "universidadulp";
-    private static final String driver = "org.mariadb.jdbc.Driver";
+    private static final String HOST = "jdbc:mariadb://localhost/";
+    private static final String USER = "lab";
+    private static final String PASS = "1234";
+    private static final String BD = "universidadulp";
+    private static final String DRIVER = "org.mariadb.jdbc.Driver";
     public static ArrayList<String> msjError = new ArrayList<String>();
 
-    public static boolean getConexion() {
-        boolean res = false;
+    public static Connection getConexion() {
+        
         if (servicioMysql()) {
             if (servicioMysql()) {
 
                 try {
-                    Class.forName(driver);
+                    Class.forName(DRIVER);
                     
-                    conec = DriverManager.getConnection(host + bd, user, pass);
-                    res = true;
+                    conec = DriverManager.getConnection(HOST + BD, USER, PASS);
+                    
                 } catch (NullPointerException | SQLException | ClassNotFoundException ex) {
-                    res = false;
+                   
                     msjError.add("fallo de conexion:" + ex.getMessage());
                 }
             }
         } else {
             msjError.add("Servicio mysql esta caido.- llamada en getConeccion()");
         }
-        return res;
+        return conec;
 
     }
 
@@ -82,7 +82,7 @@ public class Conexion {
     // retorna un ResultSet
     public static ResultSet consulta(String sql) {
         ResultSet res = null;
-        if (getConexion()) {
+       
 
             Statement stmt;
 
@@ -95,29 +95,11 @@ public class Conexion {
                 msjError.add("fallo la consulta: " + ex.getMessage());
             }
 
-        }
+        
         return res;
     }
 
-    // devulve 1 el usuario se borro o se actualizo depende de la consulta
-    public static int actualizar(String sql) {
-        int res = -1;
-        if (getConexion()) {
-
-            Statement stmt;
-
-            try {
-                stmt = conec.createStatement();
-                res = stmt.executeUpdate(sql);
-
-            } catch (SQLException ex) {
-
-                msjError.add("fallo la actualizacion: " + ex.getMessage());
-            }
-            getDesconexion();
-        }
-        return res;
-    }
+  
 
     public static void mostrarErrores() {
         if (msjError.size() > 0) {
