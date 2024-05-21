@@ -5,16 +5,18 @@ import entidades.Inscripcion;
 import accesoADatos.Conexion;
 import entidades.Alumno;
 import entidades.Materia;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.mariadb.jdbc.Statement;
+
 
 /**
  *
@@ -31,6 +33,150 @@ public class InscripcionData {
     public InscripcionData() {
         conec = Conexion.getConexion();
     }
+    
+    public void guardarInscripciones(Inscripcion insc){
+        
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        
+        
+        String sql = "INSERT INTO inscripcion (idAlumno, idMateria, nota) "
+                + "VALUES (?,?,?)";
+        try{
+        ps = conec.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        ps.setInt(1, insc.getAlumno().getIdAlumno());
+        //ps.setInt(2, insc.getAlumno().getIdMateria());
+        ps.setDouble(3, insc.getNota());
+        ps.executeUpdate(sql);
+        rs = ps.getGeneratedKeys();
+        if(rs.next()){
+            insc.setIdInscripcion(rs.getInt(1));
+            JOptionPane.showMessageDialog(null, "Inscripcion Registrada");
+        }
+        
+            ps.close();
+            rs.close();
+            
+        }catch(SQLException ex){
+        Conexion.msjError.add("IncripcionData:  guardarInscripcion() ->" + ex.getMessage());
+        }
+    }
+    
+    public ArrayList<Inscripcion> obtenerInscripciones(){
+        ArrayList<Inscripcion> listaInsc = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        
+        String query = "SELECT * FROM inscripcion ";
+        
+        try {
+            ps = conec.prepareStatement(query);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                
+                Inscripcion insc = new Inscripcion();
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
+                Alumno al = alumData.buscarAlumno(rs.getInt("idAlumno"));
+                Materia mat = mateData.buscarMateria(rs.getInt("idMateria"));
+                insc.setAlumno(al);
+                insc.setMateria(mat);
+                insc.setNota(rs.getDouble("nota"));
+                
+                listaInsc.add(insc);
+                
+            }
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listaInsc;
+    
+    }
+    
+    public ArrayList<Inscripcion> obtenerInscripcionesPorAlumno(int idAlumno){
+        ArrayList<Inscripcion> listaInsc = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        
+        String query = "SELECT * FROM inscripcion WHERE idAlumno = ? ";
+        
+        try {
+            ps = conec.prepareStatement(query);
+            ps.setInt(1, idAlumno);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                
+                Inscripcion insc = new Inscripcion();
+                insc.setIdInscripcion(rs.getInt("idInscripto"));
+                Alumno al = alumData.buscarAlumno(rs.getInt("idAlumno"));
+                Materia mat = mateData.buscarMateria(rs.getInt("idMateria"));
+                insc.setAlumno(al);
+                insc.setMateria(mat);
+                insc.setNota(rs.getDouble("nota"));
+                
+                listaInsc.add(insc);
+                
+            }
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return listaInsc;
+    
+    }
+    
+    public ArrayList<Materia> obtenerMateriasCursadas(int idAlumno){
+        ArrayList<Materia> materiasC = new ArrayList<>();
+        ResultSet rs = null;
+        PreparedStatement ps = null;
+        
+        String query = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion,materia"
+                + "WHERE inscripcion.idMateria = materia.idMateria"
+                + "AND inscripcion.idAlumno = ?";
+        
+        try {
+            ps = conec.prepareStatement(query);
+            ps.setInt(1, idAlumno);
+            rs = ps.executeQuery();
+            while(rs.next()){
+            
+                Materia materia = new Materia();
+                materia.setIdMateria(rs.getInt("idMateria"));
+                materia.setNombre(rs.getString("nombre"));
+                materia.setAño(rs.getInt("año"));
+                
+                materiasC.add(materia);   
+            }
+            ps.close();
+            rs.close();
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       return materiasC;
+    }
+    
+    
+    
+    
+    /*
+    obtenerMateriasCursadas
+    obtenerInscripcionesPorAlumno
+    obtenerInscripciones
+    guardarInscripciones
+    obtenerMateriasNoCursadas
+    borrarInscripcionMateriaALumno
+    actualizarNota
+    obtenerAlumnoXMAteria
+    */
+    
+    
 
     //Los ultimos 4 metodos Martin Piriz
     public ArrayList<Materia> obtenerMateriasNoCursadas() {
