@@ -5,8 +5,8 @@ import entidades.Inscripcion;
 import accesoADatos.Conexion;
 import entidades.Alumno;
 import entidades.Materia;
-import java.sql.Connection;
 
+import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
