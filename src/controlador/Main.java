@@ -61,13 +61,15 @@ public class Main {
         aldata.modificarAlumno(alumno2);
         */
         
-        //Prueba: inscribir alumno en una materia
-//        Alumno alu1 = aldata.buscarAlumno(5);
-//        Materia mat = matdata.buscarMateria(2);
-//        Inscripcion insc = new Inscripcion(alu1,mat,9);
+        //Prueba: guardarInscripcion()
+        Alumno alu1 = aldata.buscarAlumno(5);
+        Materia mat = matdata.buscarMateria(2);
+        Inscripcion insc = new Inscripcion(alu1,mat,9);
 //        
 //        inscdata.guardarInscripcion(insc);
         
+        //Prueba: actualizarNota()
+//        inscdata.actualizarNota(5, 2, 10);
         
         Conexion.mostrarErrores();
 
