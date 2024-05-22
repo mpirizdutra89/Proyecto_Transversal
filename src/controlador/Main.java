@@ -2,7 +2,11 @@ package controlador;
 
 import accesoADatos.Conexion;
 import accesoADatos.AlumnoData;
+import accesoADatos.InscripcionData;
+import accesoADatos.MateriaData;
 import entidades.Alumno;
+import entidades.Inscripcion;
+import entidades.Materia;
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -18,6 +22,8 @@ public class Main {
     public static void main(String[] args) {
 
         AlumnoData aldata = new AlumnoData();
+        MateriaData matdata = new MateriaData(); 
+        InscripcionData inscdata = new InscripcionData();
 
 //        Alumno agus = new Alumno(5,111222,"Rodrigo","Lucero",LocalDate.of(2000, 11, 5),true);
 //        aldata.modificarAlumno(agus);
@@ -54,7 +60,15 @@ public class Main {
         Alumno alumno2 = new Alumno(3,87654321, "Garcia", "Mariana", LocalDate.of(1999,05,21), true);
         aldata.modificarAlumno(alumno2);
         */
-        //
+        
+        //Prueba: inscribir alumno en una materia
+//        Alumno alu1 = aldata.buscarAlumno(5);
+//        Materia mat = matdata.buscarMateria(2);
+//        Inscripcion insc = new Inscripcion(alu1,mat,9);
+//        
+//        inscdata.guardarInscripcion(insc);
+        
+        
         Conexion.mostrarErrores();
 
     }

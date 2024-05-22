@@ -34,7 +34,7 @@ public class InscripcionData {
         conec = Conexion.getConexion();
     }
     
-    public void guardarInscripciones(Inscripcion insc){
+    public void guardarInscripcion(Inscripcion insc){
         
         PreparedStatement ps = null;
         ResultSet rs = null;
@@ -47,7 +47,7 @@ public class InscripcionData {
         ps.setInt(1, insc.getAlumno().getIdAlumno());
         ps.setInt(2, insc.getMateria().getIdMateria());
         ps.setDouble(3, insc.getNota());
-        ps.executeUpdate(sql);
+        ps.executeUpdate();
         rs = ps.getGeneratedKeys();
         if(rs.next()){
             insc.setIdInscripcion(rs.getInt(1));

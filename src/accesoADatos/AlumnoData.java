@@ -60,7 +60,7 @@ public class AlumnoData {
     public Alumno buscarAlumno(int id) {
         alumno = null;
         PreparedStatement ps = null;
-        String consulta = "SELECT dni,apellido,nombre,fechaNacimiento FROM alumno WHERE  idAlumno= ? and estado=1";
+        String consulta = "SELECT dni,apellido,nombre,fechaNacimiento,estado FROM alumno WHERE  idAlumno= ? and estado=1";
 
         try {
             ps = conec.prepareStatement(consulta);
