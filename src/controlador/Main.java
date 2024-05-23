@@ -19,11 +19,11 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
+//    public static void main(String[] args) {
 
-        AlumnoData aldata = new AlumnoData();
-        MateriaData matdata = new MateriaData();
-        InscripcionData inscdata = new InscripcionData();
+//        AlumnoData aldata = new AlumnoData();
+//        MateriaData matdata = new MateriaData();
+//        InscripcionData inscdata = new InscripcionData();
 
 //        Alumno agus = new Alumno(5,111222,"Rodrigo","Lucero",LocalDate.of(2000, 11, 5),true);
 //        aldata.modificarAlumno(agus);
@@ -90,32 +90,32 @@ public class Main {
         //Eliminar materia -logico
         //matdata.eliminarMateria(1);
         
-        for (Materia materia : matdata.listarMaterias()) {
-            System.out.print("ID: "+materia.getIdMateria());
-            System.out.print("-------");
-            System.out.print("Nombre: "+materia.getNombre());
-            System.out.print("-------");
-            System.out.print("Año: "+ materia.getAño());
-            System.out.print("-------");
-            System.out.print("Estado: "+materia.isEstado());
-            System.out.println("");     
-        }
+//        for (Materia materia : matdata.listarMaterias()) {
+//            System.out.print("ID: "+materia.getIdMateria());
+//            System.out.print("-------");
+//            System.out.print("Nombre: "+materia.getNombre());
+//            System.out.print("-------");
+//            System.out.print("Año: "+ materia.getAño());
+//            System.out.print("-------");
+//            System.out.print("Estado: "+materia.isEstado());
+//            System.out.println("");     
+//        }
         //martin
-        for (Materia materia : inscdata.obtenerMateriasNoCursadas()) {
-             System.out.print("ID: "+materia.getIdMateria());
-            System.out.print("-------");
-            System.out.print("Nombre: "+materia.getNombre());
-            System.out.print("-------");
-            System.out.print("Año: "+ materia.getAño());
-            System.out.print("-------");
-            System.out.print("Estado: "+materia.isEstado());
-            System.out.println("");     
-        }
-        
+//        for (Materia materia : inscdata.obtenerMateriasNoCursadas()) {
+//             System.out.print("ID: "+materia.getIdMateria());
+//            System.out.print("-------");
+//            System.out.print("Nombre: "+materia.getNombre());
+//            System.out.print("-------");
+//            System.out.print("Año: "+ materia.getAño());
+//            System.out.print("-------");
+//            System.out.print("Estado: "+materia.isEstado());
+//            System.out.println("");     
+//        }
+//        
         //inscdata.borrarInscripcionMateriaALumno(1, 1);
         
-        Conexion.mostrarErrores();
+     //   Conexion.mostrarErrores();
 
-    }
+   // }
 
 }
