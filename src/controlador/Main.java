@@ -100,6 +100,20 @@ public class Main {
             System.out.print("Estado: "+materia.isEstado());
             System.out.println("");     
         }
+        //martin
+        for (Materia materia : inscdata.obtenerMateriasNoCursadas()) {
+             System.out.print("ID: "+materia.getIdMateria());
+            System.out.print("-------");
+            System.out.print("Nombre: "+materia.getNombre());
+            System.out.print("-------");
+            System.out.print("Año: "+ materia.getAño());
+            System.out.print("-------");
+            System.out.print("Estado: "+materia.isEstado());
+            System.out.println("");     
+        }
+        
+        //inscdata.borrarInscripcionMateriaALumno(1, 1);
+        
         Conexion.mostrarErrores();
 
     }
