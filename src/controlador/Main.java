@@ -62,15 +62,30 @@ public class Main {
         */
         
         //Prueba: guardarInscripcion()
-        Alumno alu1 = aldata.buscarAlumno(5);
-        Materia mat = matdata.buscarMateria(2);
-        Inscripcion insc = new Inscripcion(alu1,mat,9);
+       // Alumno alu1 = aldata.buscarAlumno(5);
+        //Materia mat = matdata.buscarMateria(2);
+       // Inscripcion insc = new Inscripcion(alu1,mat,9);
 //        
 //        inscdata.guardarInscripcion(insc);
         
         //Prueba: actualizarNota()
 //        inscdata.actualizarNota(5, 2, 10);
+        /*Materia m1 = new Materia("Geografía", 2, true);
+        Materia m2 = new Materia("Matemática", 6, false);
+        Materia m3 = new Materia("Biología", 1, true);
+        Materia m4 = new Materia("Contabilidad", 3, false);
+        Materia m5 = new Materia("Sociología", 2, false);*/
+         //Se guardan materias en la BD
+        //matdata.guardarMateria(m1);
+        //matdata.guardarMateria(m2);
+        //matdata.guardarMateria(m3);
+        //matdata.guardarMateria(m4);
+        //matdata.guardarMateria(m5);
         
+        //Materia matbuscada = matdata.buscarMateria(1);
+        Materia m4 = new Materia(4,"Contabilidad", 4);
+        matdata.modificarMateria(m4);
+        //System.out.println(matbuscada);
         Conexion.mostrarErrores();
 
     }

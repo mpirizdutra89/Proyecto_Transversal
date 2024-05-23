@@ -62,7 +62,7 @@ public class MateriaData {
                 materia.setAño(rs.getInt("año"));
                 materia.setEstado(true);
             } else {
-                JOptionPane.showMessageDialog(null, "No existe ese alumno");
+                JOptionPane.showMessageDialog(null, "No existe esa materia");
             }
             ps.close();
             rs.close();
@@ -76,13 +76,14 @@ public class MateriaData {
     /*METODO PARA MODIFICAR MATERIAS*/
     public void modificarMateria(Materia materia) {
 
-        String sql = "UPDATE materia SET nombre = ?, año = ? WHERE idMateria = ?";
+        String sql = "UPDATE materia SET nombre = ?, año = ?, estado = ? WHERE idMateria = ?";
 
         try {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setString(1, materia.getNombre());
             ps.setInt(2, materia.getAño());
-
+            ps.setBoolean(3, materia.isEstado());
+            ps.setInt(4, materia.getIdMateria());
             int exito = ps.executeUpdate();
 
             if (exito == 1) {
