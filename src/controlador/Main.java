@@ -22,7 +22,7 @@ public class Main {
     public static void main(String[] args) {
 
         AlumnoData aldata = new AlumnoData();
-        MateriaData matdata = new MateriaData(); 
+        MateriaData matdata = new MateriaData();
         InscripcionData inscdata = new InscripcionData();
 
 //        Alumno agus = new Alumno(5,111222,"Rodrigo","Lucero",LocalDate.of(2000, 11, 5),true);
@@ -59,33 +59,47 @@ public class Main {
         //Se modifica nombre y estado del alumno
         Alumno alumno2 = new Alumno(3,87654321, "Garcia", "Mariana", LocalDate.of(1999,05,21), true);
         aldata.modificarAlumno(alumno2);
-        */
-        
+         */
         //Prueba: guardarInscripcion()
-       // Alumno alu1 = aldata.buscarAlumno(5);
+        // Alumno alu1 = aldata.buscarAlumno(5);
         //Materia mat = matdata.buscarMateria(2);
-       // Inscripcion insc = new Inscripcion(alu1,mat,9);
+        // Inscripcion insc = new Inscripcion(alu1,mat,9);
 //        
 //        inscdata.guardarInscripcion(insc);
-        
         //Prueba: actualizarNota()
 //        inscdata.actualizarNota(5, 2, 10);
+        
         /*Materia m1 = new Materia("Geografía", 2, true);
         Materia m2 = new Materia("Matemática", 6, false);
         Materia m3 = new Materia("Biología", 1, true);
         Materia m4 = new Materia("Contabilidad", 3, false);
         Materia m5 = new Materia("Sociología", 2, false);*/
-         //Se guardan materias en la BD
+        
+        //Se guardan materias en la BD
         //matdata.guardarMateria(m1);
         //matdata.guardarMateria(m2);
         //matdata.guardarMateria(m3);
         //matdata.guardarMateria(m4);
         //matdata.guardarMateria(m5);
         
+        //Buscar y modificar materias
         //Materia matbuscada = matdata.buscarMateria(1);
-        Materia m4 = new Materia(4,"Contabilidad", 4);
-        matdata.modificarMateria(m4);
         //System.out.println(matbuscada);
+        //Materia m4 = new Materia(4,"Contabilidad",5,true);
+        //matdata.modificarMateria(m4);
+        //Eliminar materia -logico
+        //matdata.eliminarMateria(1);
+        
+        for (Materia materia : matdata.listarMaterias()) {
+            System.out.print("ID: "+materia.getIdMateria());
+            System.out.print("-------");
+            System.out.print("Nombre: "+materia.getNombre());
+            System.out.print("-------");
+            System.out.print("Año: "+ materia.getAño());
+            System.out.print("-------");
+            System.out.print("Estado: "+materia.isEstado());
+            System.out.println("");     
+        }
         Conexion.mostrarErrores();
 
     }
