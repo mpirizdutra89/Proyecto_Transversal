@@ -207,7 +207,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JButton jBtnAnular;
     private javax.swing.JButton jBtnInscripcion;
     private javax.swing.JButton jBtnSalir;
-    private javax.swing.JComboBox<String> jCbAlumnos;
+    private javax.swing.JComboBox<Alumno> jCbAlumnos;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -220,7 +220,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
     private void armadoComboBox(){
         for (Alumno alumno : listaAlumno) {
-            jCbAlumnos.addItem(alumno.mostrarAlumno());
+            jCbAlumnos.addItem(alumno);
             
         }
     }
