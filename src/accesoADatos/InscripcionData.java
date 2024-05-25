@@ -41,7 +41,7 @@ public class InscripcionData {
         
         
         String sql = "INSERT INTO inscripcion (idAlumno, idMateria, nota) "
-                + "VALUES (?,?,?)";
+                + " VALUES (?,?,?)";
         try{
         ps = conec.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, insc.getAlumno().getIdAlumno());
@@ -136,9 +136,9 @@ public class InscripcionData {
         ResultSet rs = null;
         PreparedStatement ps = null;
         
-        String query = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion,materia"
-                + "WHERE inscripcion.idMateria = materia.idMateria"
-                + "AND inscripcion.idAlumno = ?";
+        String query = " SELECT inscripcion.idMateria, nombre, año FROM inscripcion,materia "
+                + " WHERE inscripcion.idMateria = materia.idMateria "
+                + " AND inscripcion.idAlumno = ? ";
         
         try {
             ps = conec.prepareStatement(query);

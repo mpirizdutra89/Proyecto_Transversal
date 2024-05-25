@@ -1,40 +1,49 @@
 package vistas;
 
 import accesoADatos.Conexion;
+import accesoADatos.InscripcionData;
 import entidades.Alumno;
+import entidades.Materia;
 import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import librerias.FuncionesComunes;
 
 /**
  *
  * @author Martin
  */
 public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
-    
-     private ArrayList<Alumno> listaAlumno;
-     private accesoADatos.AlumnoData dataAlumno;
-     private Alumno alumnoSelec;
-       
+
+    private ArrayList<Alumno> listaAlumno;
+    private ArrayList<Materia> listaMateria;
+    private accesoADatos.InscripcionData dataInscripcion;
+    private accesoADatos.AlumnoData dataAlumno;
+    private  DefaultTableModel modeloTable;
+    private Alumno alumnoSelec;
+
     /**
      * Creates new form vistaFormularioInscripcion
      */
     public vistaFormularioInscripcion() {
-       
+
         initComponents();
-        dataAlumno=new accesoADatos.AlumnoData();
-        listaAlumno=new ArrayList<>();
-        listaAlumno=(ArrayList<Alumno>) dataAlumno.listarAlumnos();
-         
-        
-        if(listaAlumno.size()>0){
-             armadoComboBox();
-             armarEncabezado();
-            
-         }else{
-             this.dispose();
-             librerias.FuncionesComunes.vistaDialogo("No hay alumnos o materia con las que interactura. Ingrese datos en sus respectivos formularios.", 0);
-             
-         }
-         
+        dataAlumno = new accesoADatos.AlumnoData();
+        dataInscripcion = new InscripcionData();
+        listaAlumno = new ArrayList<>();
+        listaAlumno = (ArrayList<Alumno>) dataAlumno.listarAlumnos();
+        btnInicializar();
+
+        if (listaAlumno.size() > 0) {
+            armadoComboBox();
+            armarEncabezado();
+            alumnoActual();
+
+        } else {
+            this.dispose();
+            librerias.FuncionesComunes.vistaDialogo("No hay alumnos o materia con las que interactura. Ingrese datos en sus respectivos formularios.", 0);
+
+        }
+
     }
 
     /**
@@ -78,12 +87,28 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTblData);
 
+        jCbAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCbAlumnosActionPerformed(evt);
+            }
+        });
+
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabel2.setText("Listado de Materias");
 
         jRbInscriptas.setText("Materias Inscriptas");
+        jRbInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRbInscriptasActionPerformed(evt);
+            }
+        });
 
         jRbNoInscriptas.setText("Materia no inscriptas");
+        jRbNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jRbNoInscriptasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPnlContenedorFrmLayout = new javax.swing.GroupLayout(jPnlContenedorFrm);
         jPnlContenedorFrm.setLayout(jPnlContenedorFrmLayout);
@@ -202,6 +227,35 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jBtnInscripcionActionPerformed
 
+    private void jCbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbAlumnosActionPerformed
+        alumnoSelec = null;
+        alumnoActual();
+
+    }//GEN-LAST:event_jCbAlumnosActionPerformed
+
+    private void jRbInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRbInscriptasActionPerformed
+
+        if (jRbNoInscriptas.isSelected()) {
+            jRbNoInscriptas.setSelected(false);
+        }
+
+        if (jRbInscriptas.isSelected()) {
+            resetBtn(true);
+            materias(true);
+        }
+    }//GEN-LAST:event_jRbInscriptasActionPerformed
+
+    private void jRbNoInscriptasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRbNoInscriptasActionPerformed
+        if (jRbInscriptas.isSelected()) {
+            jRbInscriptas.setSelected(false);
+        }
+
+        if (jRbNoInscriptas.isSelected()) {
+            resetBtn(false);
+            materias(false);
+        }
+    }//GEN-LAST:event_jRbNoInscriptasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jBtnAnular;
@@ -218,27 +272,58 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     private javax.swing.JTable jTblData;
     // End of variables declaration//GEN-END:variables
 
-    private void armadoComboBox(){
+    private void armadoComboBox() {
         for (Alumno alumno : listaAlumno) {
             jCbAlumnos.addItem(alumno);
-            
+
         }
     }
-    
-    private void armarEncabezado(){
-           
-        jTblData.setModel(librerias.FuncionesComunes.ArmadoEncabezados(entidades.EncabezadoMateria.ID));
+
+    private void armarEncabezado() {
+        modeloTable=librerias.FuncionesComunes.ArmadoEncabezados(entidades.EncabezadoMateria.ID);
+        jTblData.setModel(modeloTable);
         librerias.FuncionesComunes.alinearCabeceras(2, "right", jTblData);
-       
-       
+
     }
-    //La opcion true es materias incriptas y la false no inscriptas
-    private boolean verificarRadio(){
-        boolean isCheck=false;
-        if(jRbInscriptas.isSelected()){
-            isCheck=true;
+
+    private void alumnoActual() {
+        alumnoSelec = (Alumno) jCbAlumnos.getSelectedItem();
+    }
+
+    private void btnInicializar() {
+        jBtnAnular.setEnabled(false);
+        jBtnInscripcion.setEnabled(false);
+    }
+
+    private void resetBtn(boolean radio) {
+
+        if (radio) {
+            jBtnAnular.setEnabled(true);
+            jBtnInscripcion.setEnabled(false);
+        } else {
+            jBtnAnular.setEnabled(false);
+            jBtnInscripcion.setEnabled(true);
         }
-        return isCheck;
+    }
+
+    private void materias(boolean radio) {
+
+        //inscriptas
+        if (radio) {
+            listaMateria=dataInscripcion.obtenerMateriasCursadas(alumnoSelec.getIdAlumno());
+            FuncionesComunes.eliminarFilas(jTblData);
+            for (Materia materia : listaMateria) {
+                modeloTable.addRow(new Object[]{
+                    materia.getIdMateria(),
+                    materia.getNombre(),
+                    materia.getNombre()
+                });
+            }
+           
+           
+        } else {
+
+        }
     }
 
 }

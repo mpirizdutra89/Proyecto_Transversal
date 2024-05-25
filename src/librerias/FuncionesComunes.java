@@ -54,6 +54,20 @@ public class FuncionesComunes {
         }
     }
     
+    
+    
+    public static void eliminarFilas(JTable table) {
+        int rowCount = table.getRowCount()-1;
+       // System.out.println(rowCount);
+       
+            for (int i = rowCount; i >= 0; i--) {
+                modeloTable.removeRow(i);
+            }
+        
+        
+    }
+    
+    
     public static void alinearCabeceras(int indiceColumna, String dir, JTable tablet) {
         // columnAlign.setHorizontalAlignment(SwingConstants.RIGHT);
         // jTblDatos.getColumnModel().getColumn(1).setCellRenderer(columnAlign);
