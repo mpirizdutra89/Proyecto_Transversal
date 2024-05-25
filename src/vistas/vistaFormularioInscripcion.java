@@ -337,8 +337,15 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                         materia.getNombre()
                     });
                 }
-            }else{
+            }else {
                 FuncionesComunes.vistaDialogo("El alumno no esta inscripto a nada", 1);
+                if (jRbInscriptas.isSelected()) {
+                    jRbInscriptas.setSelected(false);
+                    jRbNoInscriptas.setSelected(true);
+                     materias(false);
+                     resetBtn(false);
+                }
+
             }
 
         } else {
@@ -354,9 +361,15 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                         materia.getNombre()
                     });
                 }
-            }else{
+            }else {
                 FuncionesComunes.vistaDialogo("Todas la materias estan ciendo cursada", 1);
-            }    
+                if (jRbNoInscriptas.isSelected()) {
+                     jRbNoInscriptas.setSelected(false);
+                    jRbInscriptas.setSelected(true);
+                    materias(true);
+                    resetBtn(true);
+                }
+            }   
         }
     }
 
