@@ -46,7 +46,30 @@ public class Conexion {
         return conec;
 
     }
+    
+     public static boolean VerificarConexion() {
+        boolean activo=false;
+        if (servicioMysql()) {
+            if (servicioMysql()) {
 
+                try {
+                    Class.forName(DRIVER);
+                    
+                    conec = DriverManager.getConnection(HOST + BD, USER, PASS);
+                    activo=true;
+                    getDesconexion();
+                } catch (NullPointerException | SQLException | ClassNotFoundException ex) {
+                   
+                    msjError.add("Conexion: getConexion():" + ex.getMessage());
+                }
+            }
+        } else {
+            msjError.add("Servicio mysql esta caido.- llamada en getConeccion()");
+        }
+        return activo;
+
+    }
+            
     public static boolean servicioMysql() {
         boolean res;
         String host = "localhost";

@@ -179,18 +179,19 @@ public class InscripcionData {
     
 
     //Los ultimos 4 metodos Martin Piriz
-    public ArrayList<Materia> obtenerMateriasNoCursadas() {
+    public ArrayList<Materia> obtenerMateriasNoCursadas( int idAlumno) {
         ArrayList<Materia> lista = new ArrayList<>();
         ResultSet res = null;
         PreparedStatement ps = null;
 
         inscripcion = null;
-        String consulta = "select * from materia where idMateria NOT IN (SELECT M.idMateria FROM materia M,inscripcion I WHERE M.idMateria=I.idMateria and estado=1) and estado=1;";
+        String consulta = "select * from materia where idMateria NOT IN (SELECT M.idMateria FROM materia M,inscripcion I WHERE M.idMateria=I.idMateria and  idAlumno=? and  estado=1) and estado=1;";
         try {
             ps = conec.prepareStatement(consulta);
+            ps.setInt(1, idAlumno);
 
             res = ps.executeQuery();
-            if (res.next()) {
+            while (res.next()) {
                 int idMateria = res.getInt("idMateria");
                 String nombre = res.getString("nombre");
                 int year = res.getInt("año");
@@ -199,6 +200,7 @@ public class InscripcionData {
                 lista.add(new Materia(idMateria, nombre, year, estado));
 
             }
+           
             ps.close();
             res.close();
 

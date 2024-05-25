@@ -11,13 +11,13 @@ import javax.swing.JInternalFrame;
  */
 public class VistaMenuPrincipal extends javax.swing.JFrame {
    
-    
+    private static VistaMenuPrincipal vmp;
     /**
      * Creates new form VistaMenuPrincipal
      */
     public VistaMenuPrincipal() {
         initComponents();
-        
+      
     }
 
     /**
@@ -165,8 +165,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMConsultaMateriaActionPerformed
 
     private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
-         accesoADatos.Conexion.getDesconexion();
-         this.dispose();
+          //  this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
+         //this.dispose();
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
     /**
@@ -199,7 +199,11 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VistaMenuPrincipal().setVisible(true);
+                
+              //  if(verificarConexion()){
+                    new VistaMenuPrincipal().setVisible(true);
+                //}
+               
             }
         });
     }
@@ -236,6 +240,17 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
 
     }
    
+   
+    private static boolean verificarConexion() {
+        boolean res = true;
+        if (accesoADatos.Conexion.VerificarConexion()) {
+            librerias.FuncionesComunes.vistaDialogo("No se pudo establecer una conexion. Revise que la base de datos este en linea y vuelva a iniciar el sistema.", 0);
+            res = false;
+
+        }
+        return res;
+
+    }
   
    
 }

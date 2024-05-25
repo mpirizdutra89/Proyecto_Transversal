@@ -307,22 +307,41 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }
 
     private void materias(boolean radio) {
-
+          listaMateria=null;
         //inscriptas
         if (radio) {
-            listaMateria=dataInscripcion.obtenerMateriasCursadas(alumnoSelec.getIdAlumno());
-            FuncionesComunes.eliminarFilas(jTblData);
-            for (Materia materia : listaMateria) {
-                modeloTable.addRow(new Object[]{
-                    materia.getIdMateria(),
-                    materia.getNombre(),
-                    materia.getNombre()
-                });
-            }
-           
-           
-        } else {
+            
+            listaMateria = dataInscripcion.obtenerMateriasCursadas(alumnoSelec.getIdAlumno());
 
+            if (listaMateria.size() > 0) {
+                FuncionesComunes.eliminarFilas(jTblData);
+                for (Materia materia : listaMateria) {
+                    modeloTable.addRow(new Object[]{
+                        materia.getIdMateria(),
+                        materia.getAño(),
+                        materia.getNombre()
+                    });
+                }
+            }else{
+                FuncionesComunes.vistaDialogo("El alumno no esta inscripto a nada", 1);
+            }
+
+        } else {
+           
+            listaMateria = dataInscripcion.obtenerMateriasNoCursadas(alumnoSelec.getIdAlumno());
+            System.out.println("Total de no cursadas:"+listaMateria.size());
+            if (listaMateria.size() > 0) {
+                FuncionesComunes.eliminarFilas(jTblData);
+                for (Materia materia : listaMateria) {
+                    modeloTable.addRow(new Object[]{
+                        materia.getIdMateria(),
+                        materia.getAño(),
+                        materia.getNombre()
+                    });
+                }
+            }else{
+                FuncionesComunes.vistaDialogo("Todas la materias estan ciendo cursada", 1);
+            }    
         }
     }
 

@@ -25,7 +25,7 @@ public class AlumnoData {
     private static Connection conec = null;
 
     public AlumnoData() {
-
+       conec=null;
         conec = Conexion.getConexion();
     }
 
