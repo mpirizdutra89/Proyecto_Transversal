@@ -1,5 +1,6 @@
 package vistas;
 
+import accesoADatos.Conexion;
 import entidades.Alumno;
 import java.util.ArrayList;
 
@@ -9,8 +10,9 @@ import java.util.ArrayList;
  */
 public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     
-     private ArrayList<Alumno> listaAlumno=new ArrayList<>();
-     private accesoADatos.AlumnoData dataAlumno=new accesoADatos.AlumnoData();
+     private ArrayList<Alumno> listaAlumno;
+     private accesoADatos.AlumnoData dataAlumno;
+     private Alumno alumnoSelec;
        
     /**
      * Creates new form vistaFormularioInscripcion
@@ -18,9 +20,12 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     public vistaFormularioInscripcion() {
        
         initComponents();
+        dataAlumno=new accesoADatos.AlumnoData();
+        listaAlumno=new ArrayList<>();
+        listaAlumno=(ArrayList<Alumno>) dataAlumno.listarAlumnos();
+         
         
-         listaAlumno=(ArrayList<Alumno>) dataAlumno.listarAlumnos();
-         if(listaAlumno.size()>0){
+        if(listaAlumno.size()>0){
              armadoComboBox();
              armarEncabezado();
             
@@ -124,6 +129,11 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         );
 
         jBtnInscripcion.setText("Inscripcion");
+        jBtnInscripcion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnInscripcionActionPerformed(evt);
+            }
+        });
 
         jBtnAnular.setText("Anular Inscripcion");
 
@@ -184,8 +194,13 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jBtnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnSalirActionPerformed
+        Conexion.getDesconexion();
         this.dispose();
     }//GEN-LAST:event_jBtnSalirActionPerformed
+
+    private void jBtnInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInscripcionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jBtnInscripcionActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

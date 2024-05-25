@@ -165,6 +165,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMConsultaMateriaActionPerformed
 
     private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
+         accesoADatos.Conexion.getDesconexion();
          this.dispose();
     }//GEN-LAST:event_jMenuSalirActionPerformed
 
