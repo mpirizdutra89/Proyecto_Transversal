@@ -51,7 +51,7 @@ public class InscripcionData {
         rs = ps.getGeneratedKeys();
         if(rs.next()){
             insc.setIdInscripcion(rs.getInt(1));
-            JOptionPane.showMessageDialog(null, "Inscripcion Registrada");
+            //JOptionPane.showMessageDialog(null, "Inscripcion Registrada");
         }
         
             ps.close();

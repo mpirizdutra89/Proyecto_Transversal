@@ -3,6 +3,7 @@ package vistas;
 import accesoADatos.Conexion;
 import accesoADatos.InscripcionData;
 import entidades.Alumno;
+import entidades.Inscripcion;
 import entidades.Materia;
 import java.util.ArrayList;
 import javax.swing.table.DefaultTableModel;
@@ -161,6 +162,11 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         });
 
         jBtnAnular.setText("Anular Inscripcion");
+        jBtnAnular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnAnularActionPerformed(evt);
+            }
+        });
 
         jBtnSalir.setText("Salir");
         jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -224,12 +230,17 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jBtnSalirActionPerformed
 
     private void jBtnInscripcionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnInscripcionActionPerformed
-        // TODO add your handling code here:
+        inscripcion();
     }//GEN-LAST:event_jBtnInscripcionActionPerformed
 
     private void jCbAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbAlumnosActionPerformed
         alumnoSelec = null;
+         
         alumnoActual();
+         if (jRbInscriptas.isSelected()){
+             materias(true);
+             resetBtn(true);
+         }
 
     }//GEN-LAST:event_jCbAlumnosActionPerformed
 
@@ -255,6 +266,10 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
             materias(false);
         }
     }//GEN-LAST:event_jRbNoInscriptasActionPerformed
+
+    private void jBtnAnularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnAnularActionPerformed
+       anularInscripcion();
+    }//GEN-LAST:event_jBtnAnularActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -329,7 +344,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         } else {
            
             listaMateria = dataInscripcion.obtenerMateriasNoCursadas(alumnoSelec.getIdAlumno());
-            System.out.println("Total de no cursadas:"+listaMateria.size());
+           
             if (listaMateria.size() > 0) {
                 FuncionesComunes.eliminarFilas(jTblData);
                 for (Materia materia : listaMateria) {
@@ -343,6 +358,38 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 FuncionesComunes.vistaDialogo("Todas la materias estan ciendo cursada", 1);
             }    
         }
+    }
+
+    private void anularInscripcion() {
+        
+        int idMateria=obtenerMateria();
+        boolean res= dataInscripcion.borrarInscripcionMateriaALumno(alumnoSelec.getIdAlumno(), idMateria);
+        if(res){
+           materias(true);
+        }
+    }
+    
+    private void inscripcion() {
+        
+        int idMateria=obtenerMateria();
+        Materia materia=new Materia();
+        materia.setIdMateria(idMateria);
+        
+        Inscripcion inscripcion=new Inscripcion(alumnoSelec,materia,0.00);
+        dataInscripcion.guardarInscripcion(inscripcion);
+         materias(false);
+    }
+    
+    
+    private int  obtenerMateria(){
+       int  idMateria=-1;
+        int rowIndex = jTblData.getSelectedRow();
+        if (rowIndex != -1) {
+            // Obtener el valor de un campo específico en la fila seleccionada
+             idMateria =Integer.parseInt( jTblData.getValueAt(rowIndex, 0).toString());
+            
+        }
+        return  idMateria;
     }
 
 }
