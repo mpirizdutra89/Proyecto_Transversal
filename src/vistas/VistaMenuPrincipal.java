@@ -1,6 +1,8 @@
 
 package vistas;
 
+import entidades.Alumno;
+import java.util.ArrayList;
 import javax.swing.JInternalFrame;
 
 /**
@@ -8,12 +10,14 @@ import javax.swing.JInternalFrame;
  * @author Nicolas
  */
 public class VistaMenuPrincipal extends javax.swing.JFrame {
-
+   
+    
     /**
      * Creates new form VistaMenuPrincipal
      */
     public VistaMenuPrincipal() {
         initComponents();
+        
     }
 
     /**
@@ -144,7 +148,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmateriaActionPerformed
 
     private void jMmanejoInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmanejoInscripcionesActionPerformed
-        // TODO add your handling code here:
+      
+            vistaFormularioInscripcion vfi = new vistaFormularioInscripcion();
+           
+            cargarVistasInternas(vfi);
+       
+
     }//GEN-LAST:event_jMmanejoInscripcionesActionPerformed
 
     private void jMmanipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmanipulacionNotasActionPerformed
@@ -225,4 +234,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jDpEscritorio.moveToFront(view);
 
     }
+   
+  
+   
 }

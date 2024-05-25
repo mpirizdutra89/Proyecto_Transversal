@@ -11,13 +11,80 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.JTextField;
-
+import javax.swing.table.DefaultTableCellRenderer;
+import javax.swing.table.DefaultTableModel;
+import entidades.EncabezadoMateria;
+import javax.swing.SwingConstants;
 /**
  *
  * @author Nicolas
  */
 public class FuncionesComunes {
+    
+      // Tablas
+    public static DefaultTableModel modeloTable;
+    private static DefaultTableCellRenderer rightRenderer = new DefaultTableCellRenderer();
+    private static DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+    
+    
 
+    //armado generico, para cualquier enum, deve psar por paramento nombre del enu y un valor ejemplo EncabezadoMateria.año
+    public static <E extends Enum<E>> DefaultTableModel ArmadoEncabezados(E enumValue) {
+       
+        Class<E> enumClass = enumValue.getDeclaringClass();
+
+        E[] enumConstants = enumClass.getEnumConstants();
+
+        modeloTable = new DefaultTableModel() {
+            public boolean isCellEditable(int f, int c) {
+                return false;
+            }
+        };
+
+        for (E constant : enumConstants) {
+
+            modeloTable.addColumn(constant.name());
+        }
+        return modeloTable;
+    }
+
+    public static void resetColumn(JTable tablet) {
+        for (int i = tablet.getColumnCount() - 1; i >= 0; i--) {
+            tablet.removeColumn(tablet.getColumnModel().getColumn(i));
+        }
+    }
+    
+    public static void alinearCabeceras(int indiceColumna, String dir, JTable tablet) {
+        // columnAlign.setHorizontalAlignment(SwingConstants.RIGHT);
+        // jTblDatos.getColumnModel().getColumn(1).setCellRenderer(columnAlign);
+        switch (dir) {
+            case "center":
+                centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+                tablet.getColumnModel().getColumn(indiceColumna).setCellRenderer(centerRenderer);
+                break;
+            case "right":
+                rightRenderer.setHorizontalAlignment(SwingConstants.RIGHT);
+                tablet.getColumnModel().getColumn(indiceColumna).setCellRenderer(rightRenderer);
+                break;
+
+            default:
+                centerRenderer.setHorizontalAlignment(SwingConstants.CENTER);
+                tablet.getColumnModel().getColumn(indiceColumna).setCellRenderer(centerRenderer);
+                break;
+        }
+
+    }
+    
+    //ejemplo de uso
+        //armarEncabesados(); este deveria ser para el suyo
+        //MiTaBLA.setModel(modeloTable);
+        //alinearCabeceras(2, "right", MiTaBLA); el primer parametro es el indice de la columna
+        //alinearCabeceras(3, "center", MiTaBLA;
+    //fin tablas
+    
+    
+    
+    
     public static void textPrompt(JTextField textField, String titulo) {
         librerias.TextPrompt placeholder = new librerias.TextPrompt(titulo, textField);
 

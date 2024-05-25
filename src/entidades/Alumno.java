@@ -93,6 +93,9 @@ public class Alumno {
         return "Alumno{" + "idAlumno=" + idAlumno + ", dni=" + dni + ", apellido=" + apellido + ", nombre=" + nombre + ", fechaNacimiento=" + fechaNacimiento + ", estado=" + estado + '}';
     }
     
+    public String mostrarAlumno(){
+        return dni+", "+apellido+","+nombre;
+    }
     
     
 }

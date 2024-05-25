@@ -9,7 +9,7 @@ import entidades.Inscripcion;
 import entidades.Materia;
 import java.time.LocalDate;
 import java.time.Month;
-
+import entidades.EncabezadoMateria;
 /**
  *
  * @author Nicolas
@@ -19,6 +19,21 @@ public class Main {
     /**
      * @param args the command line arguments
      */
+  //  public static void main(String[] args) {
+//         AlumnoData aldata = new AlumnoData();
+//          Conexion.mostrarErrores();
+//         for(Alumno a:aldata.listarAlumnos()){
+//            System.out.println("DNI: " + a.getDni());
+//            System.out.println("Apellido: " + a.getApellido());
+//            System.out.println("Nombre: " + a.getNombre());
+//            System.out.println("Fecha de Nac: " + a.getFechaNacimiento());
+//            System.out.println("\n");   
+//        }
+       //librerias.FuncionesComunes.ArmadoEncabezados(EncabezadoMateria.ID);
+         
+    //}
+   
+    
 //    public static void main(String[] args) {
 
 //        AlumnoData aldata = new AlumnoData();
