@@ -51,7 +51,7 @@
                                   <Component id="jLapellido" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLdni" alignment="0" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="button1" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="btnNuevo" min="-2" pref="70" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -63,15 +63,15 @@
                                           <Component id="jTextnombre" alignment="0" pref="200" max="32767" attributes="0"/>
                                       </Group>
                                       <Group type="102" alignment="0" attributes="0">
-                                          <Component id="button2" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="btnGuardar" min="-2" pref="70" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
-                                          <Component id="button3" min="-2" pref="70" max="-2" attributes="0"/>
+                                          <Component id="btnEliminar" min="-2" pref="70" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <EmptySpace pref="40" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="button4" min="-2" pref="70" max="-2" attributes="0"/>
-                                      <Component id="button5" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="btnSalir" min="-2" pref="70" max="-2" attributes="0"/>
+                                      <Component id="btnBuscar" min="-2" pref="70" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
@@ -104,7 +104,7 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="button5" min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="btnBuscar" min="-2" pref="30" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
                               </Group>
                           </Group>
@@ -132,12 +132,12 @@
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="button3" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="button2" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="button1" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnEliminar" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnGuardar" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="btnNuevo" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Component id="button4" min="-2" pref="30" max="-2" attributes="0"/>
+                      <Component id="btnSalir" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="45" max="32767" attributes="0"/>
               </Group>
@@ -239,7 +239,7 @@
             </Property>
           </AccessibilityProperties>
         </Component>
-        <Component class="java.awt.Button" name="button1">
+        <Component class="java.awt.Button" name="btnNuevo">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="66" type="rgb"/>
@@ -250,7 +250,7 @@
             <Property name="label" type="java.lang.String" value="Nuevo"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Button" name="button2">
+        <Component class="java.awt.Button" name="btnGuardar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="ff" red="99" type="rgb"/>
@@ -261,10 +261,10 @@
             <Property name="label" type="java.lang.String" value="Guardar"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="button2ActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGuardarActionPerformed"/>
           </Events>
         </Component>
-        <Component class="java.awt.Button" name="button3">
+        <Component class="java.awt.Button" name="btnEliminar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="ff" type="rgb"/>
@@ -275,7 +275,7 @@
             <Property name="label" type="java.lang.String" value="Eliminar"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Button" name="button4">
+        <Component class="java.awt.Button" name="btnSalir">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="0" red="99" type="rgb"/>
@@ -289,7 +289,7 @@
             <Property name="label" type="java.lang.String" value="Salir"/>
           </Properties>
         </Component>
-        <Component class="java.awt.Button" name="button5">
+        <Component class="java.awt.Button" name="btnBuscar">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="0" green="cc" red="33" type="rgb"/>

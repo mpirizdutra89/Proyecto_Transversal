@@ -35,11 +35,11 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         jTextapellido = new javax.swing.JTextField();
         jTextnombre = new javax.swing.JTextField();
         jCheckestado = new javax.swing.JCheckBox();
-        button1 = new java.awt.Button();
-        button2 = new java.awt.Button();
-        button3 = new java.awt.Button();
-        button4 = new java.awt.Button();
-        button5 = new java.awt.Button();
+        btnNuevo = new java.awt.Button();
+        btnGuardar = new java.awt.Button();
+        btnEliminar = new java.awt.Button();
+        btnSalir = new java.awt.Button();
+        btnBuscar = new java.awt.Button();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
 
         jLtitulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
@@ -71,33 +71,33 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
 
         jTextnombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
 
-        button1.setBackground(new java.awt.Color(102, 255, 0));
-        button1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        button1.setLabel("Nuevo");
+        btnNuevo.setBackground(new java.awt.Color(102, 255, 0));
+        btnNuevo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnNuevo.setLabel("Nuevo");
 
-        button2.setBackground(new java.awt.Color(153, 255, 0));
-        button2.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        button2.setLabel("Guardar");
-        button2.addActionListener(new java.awt.event.ActionListener() {
+        btnGuardar.setBackground(new java.awt.Color(153, 255, 0));
+        btnGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnGuardar.setLabel("Guardar");
+        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                button2ActionPerformed(evt);
+                btnGuardarActionPerformed(evt);
             }
         });
 
-        button3.setBackground(new java.awt.Color(255, 0, 0));
-        button3.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        button3.setLabel("Eliminar");
+        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnEliminar.setLabel("Eliminar");
 
-        button4.setBackground(new java.awt.Color(153, 0, 0));
-        button4.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        button4.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        button4.setLabel("Salir");
+        btnSalir.setBackground(new java.awt.Color(153, 0, 0));
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnSalir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnSalir.setLabel("Salir");
 
-        button5.setBackground(new java.awt.Color(51, 204, 0));
-        button5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        button5.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        button5.setLabel("Buscar");
-        button5.setName("Buscar"); // NOI18N
+        btnBuscar.setBackground(new java.awt.Color(51, 204, 0));
+        btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnBuscar.setLabel("Buscar");
+        btnBuscar.setName("Buscar"); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -118,7 +118,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                                 .addComponent(jLnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLapellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jLdni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -128,13 +128,13 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                                         .addComponent(jTextapellido)
                                         .addComponent(jTextnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(40, 40, 40)
-                                        .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jCheckestado, javax.swing.GroupLayout.Alignment.LEADING)
@@ -156,7 +156,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                                     .addComponent(jLdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jTextdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(button5, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(1, 1, 1)))
                         .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,10 +177,10 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                             .addComponent(jLfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(button3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(button1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(button4, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(45, Short.MAX_VALUE))
         );
 
@@ -207,17 +207,17 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextdniActionPerformed
 
-    private void button2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button2ActionPerformed
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_button2ActionPerformed
+    }//GEN-LAST:event_btnGuardarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button button1;
-    private java.awt.Button button2;
-    private java.awt.Button button3;
-    private java.awt.Button button4;
-    private java.awt.Button button5;
+    private java.awt.Button btnBuscar;
+    private java.awt.Button btnEliminar;
+    private java.awt.Button btnGuardar;
+    private java.awt.Button btnNuevo;
+    private java.awt.Button btnSalir;
     private javax.swing.JCheckBox jCheckestado;
     private com.toedter.calendar.JDateChooser jDateChooser1;
     private javax.swing.JLabel jLapellido;
