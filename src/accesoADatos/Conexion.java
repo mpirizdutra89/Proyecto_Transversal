@@ -28,18 +28,18 @@ public class Conexion {
     public static Connection getConexion() {
         
         if (servicioMysql()) {
-            if (servicioMysql()) {
+           
 
                 try {
                     Class.forName(DRIVER);
-                    
+                   
                     conec = DriverManager.getConnection(HOST + BD, USER, PASS);
                     
                 } catch (NullPointerException | SQLException | ClassNotFoundException ex) {
                    
                     msjError.add("Conexion: getConexion():" + ex.getMessage());
                 }
-            }
+            
         } else {
             msjError.add("Servicio mysql esta caido.- llamada en getConeccion()");
         }

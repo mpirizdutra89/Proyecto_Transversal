@@ -19,7 +19,7 @@ public class Main {
     /**
      * @param args the command line arguments
      */
-  //  public static void main(String[] args) {
+//    public static void main(String[] args) {
 //         AlumnoData aldata = new AlumnoData();
 //          Conexion.mostrarErrores();
 //         for(Alumno a:aldata.listarAlumnos()){
@@ -29,9 +29,9 @@ public class Main {
 //            System.out.println("Fecha de Nac: " + a.getFechaNacimiento());
 //            System.out.println("\n");   
 //        }
-       //librerias.FuncionesComunes.ArmadoEncabezados(EncabezadoMateria.ID);
-         
-    //}
+//       librerias.FuncionesComunes.ArmadoEncabezados(EncabezadoMateria.ID);
+//         
+//    }
    
     
 //    public static void main(String[] args) {
