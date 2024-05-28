@@ -8,12 +8,12 @@ package vistas;
  *
  * @author agus1
  */
-public class vistaFormularioNotas extends javax.swing.JFrame {
+public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
 
     /**
      * Creates new form vistaFormularioNotas
      */
-    public vistaFormularioNotas() {
+    public vistaFormularioActualizarNotas() {
         initComponents();
     }
 
@@ -141,20 +141,21 @@ public class vistaFormularioNotas extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(vistaFormularioNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaFormularioActualizarNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(vistaFormularioNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaFormularioActualizarNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(vistaFormularioNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaFormularioActualizarNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(vistaFormularioNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(vistaFormularioActualizarNotas.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new vistaFormularioNotas().setVisible(true);
+                new vistaFormularioActualizarNotas().setVisible(true);
             }
         });
     }
