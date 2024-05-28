@@ -75,11 +75,16 @@
                                   </Group>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
+<<<<<<< HEAD:src/vistas/vistaFormularioAlumno.form
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jCheckestado" alignment="0" min="-2" max="-2" attributes="0"/>
                                       <Component id="jCfechaNac" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+=======
+                                  <Component id="jCheckestado" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="0" pref="286" max="32767" attributes="0"/>
+>>>>>>> 6a8895291ed3fdc813725cdc4ce18184659d8268:src/vistas/FormularioAlumnoView.form
                               </Group>
                           </Group>
                       </Group>
@@ -126,10 +131,14 @@
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
+<<<<<<< HEAD:src/vistas/vistaFormularioAlumno.form
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLfechaNac" min="-2" pref="30" max="-2" attributes="0"/>
                               <Component id="jCfechaNac" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
+=======
+                          <Component id="jLfechaNac" min="-2" pref="30" max="-2" attributes="0"/>
+>>>>>>> 6a8895291ed3fdc813725cdc4ce18184659d8268:src/vistas/FormularioAlumnoView.form
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="btnEliminar" min="-2" pref="30" max="-2" attributes="0"/>
@@ -310,8 +319,11 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
           </Events>
         </Component>
+<<<<<<< HEAD:src/vistas/vistaFormularioAlumno.form
         <Component class="com.toedter.calendar.JDateChooser" name="jCfechaNac">
         </Component>
+=======
+>>>>>>> 6a8895291ed3fdc813725cdc4ce18184659d8268:src/vistas/FormularioAlumnoView.form
       </SubComponents>
     </Container>
   </SubComponents>
