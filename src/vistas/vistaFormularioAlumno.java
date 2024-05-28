@@ -99,11 +99,21 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnEliminar.setLabel("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setBackground(new java.awt.Color(153, 0, 0));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnSalir.setLabel("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
 
         btnBuscar.setBackground(new java.awt.Color(51, 204, 0));
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -225,15 +235,40 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_jTextdniActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
+        try {
+            Integer dni = Integer.parseInt(jTextdni.getText());
+            String nombre = jTextnombre.getText();
+            String apellido = jTextapellido.getText();
+
+            if (nombre.isEmpty() || apellido.isEmpty()) {
+                JOptionPane.showMessageDialog(null, "No pueden haber campos vacios");
+                return;
+            }
+            java.util.Date sfecha = jCfechaNac.getDate();
+            LocalDate fechaNac = sfecha.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            Boolean estado = jCheckestado.isSelected();
+
+            if (alumnoActual == null) {
+                alumnoActual = new Alumno(dni, apellido, nombre, fechaNac, estado);
+                alumData.guardarAlumno(alumnoActual);
+            } else {
+                alumnoActual.setDni(dni);
+                alumnoActual.setApellido(apellido);
+                alumnoActual.setNombre(nombre);
+                alumnoActual.setFechaNacimiento(fechaNac);
+                alumData.modificarAlumno(alumnoActual);
+            }
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un DNI válido");
+        }
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         try {
-            
+
             Integer dni = Integer.parseInt(jTextdni.getText());
             alumnoActual = alumData.buscarAlumnoPorDni(dni);
-            
+
             if (alumnoActual != null) {
                 jTextapellido.setText(alumnoActual.getApellido());
                 jTextnombre.setText(alumnoActual.getNombre());
@@ -241,7 +276,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                 LocalDate lc = alumnoActual.getFechaNacimiento();
                 java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 jCfechaNac.setDate(date);
-                
+
             }
 
         } catch (NumberFormatException e) {
@@ -253,14 +288,28 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         limpiarCampos();
         alumnoActual = null;
     }//GEN-LAST:event_btnNuevoActionPerformed
-    private void limpiarCampos(){
-        
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        if (alumnoActual != null) {
+            alumData.eliminarAlumno(alumnoActual.getIdAlumno());
+            alumnoActual = null;
+            limpiarCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay un alumno seleccionado");
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
+    private void limpiarCampos() {
+
         jTextdni.setText("");
         jTextapellido.setText("");
         jTextnombre.setText("");
         jCheckestado.setSelected(true);
         jCfechaNac.setDate(new Date());
-    
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
