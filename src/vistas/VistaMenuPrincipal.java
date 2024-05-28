@@ -11,13 +11,14 @@ import javax.swing.JInternalFrame;
  */
 public class VistaMenuPrincipal extends javax.swing.JFrame {
    
-    private static VistaMenuPrincipal vmp;
+   
     /**
      * Creates new form VistaMenuPrincipal
      */
     public VistaMenuPrincipal() {
         initComponents();
-      
+       
+        
     }
 
     /**
@@ -112,9 +113,9 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu4);
 
         jMenuSalir.setText("Salir");
-        jMenuSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuSalirActionPerformed(evt);
+        jMenuSalir.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jMenuSalirMouseClicked(evt);
             }
         });
         jMenuBar1.add(jMenuSalir);
@@ -164,10 +165,10 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jMConsultaMateriaActionPerformed
 
-    private void jMenuSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuSalirActionPerformed
-          //  this.setDefaultCloseOperation(this.DISPOSE_ON_CLOSE);
-         //this.dispose();
-    }//GEN-LAST:event_jMenuSalirActionPerformed
+    private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
+         
+        librerias.FuncionesComunes.closeAll();
+    }//GEN-LAST:event_jMenuSalirMouseClicked
 
     /**
      * @param args the command line arguments
@@ -200,9 +201,9 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 
-              //  if(verificarConexion()){
+                if(verificarConexion()){
                     new VistaMenuPrincipal().setVisible(true);
-                //}
+                }
                
             }
         });
@@ -243,9 +244,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
    
     private static boolean verificarConexion() {
         boolean res = true;
-        if (accesoADatos.Conexion.VerificarConexion()) {
-            librerias.FuncionesComunes.vistaDialogo("No se pudo establecer una conexion. Revise que la base de datos este en linea y vuelva a iniciar el sistema.", 0);
+        
+        if (!accesoADatos.Conexion.VerificarConexion()) {
+            
+            librerias.FuncionesComunes.vistaDialogo("No se pudo iniciar el sistema. Revise que la base de datos este en linea y vuelva a iniciar el sistema.", 0);
             res = false;
+            librerias.FuncionesComunes.closeAll();
 
         }
         return res;

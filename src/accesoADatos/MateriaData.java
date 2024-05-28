@@ -37,7 +37,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: guardarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -66,7 +66,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: buscarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -91,7 +91,7 @@ public class MateriaData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: modificarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -112,7 +112,7 @@ public class MateriaData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: eliminarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -140,7 +140,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: listarMaterias ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }

@@ -57,7 +57,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        }catch(SQLException ex){
+        }catch(SQLException | NullPointerException ex){
         Conexion.msjError.add("IncripcionData:  guardarInscripcion() ->" + ex.getMessage());
         }
     }
@@ -88,7 +88,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -123,7 +123,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -156,7 +156,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
        return materiasC;
@@ -204,7 +204,7 @@ public class InscripcionData {
             ps.close();
             res.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("IncripcionData:  obtenerMateriasNoCursadas() ->" + ex.getMessage());
         }
 
@@ -227,7 +227,7 @@ public class InscripcionData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
 
             Conexion.msjError.add("IncripcionData: borrarInscripcionMateriaALumno() ->" + ex.getMessage());
         }
@@ -252,7 +252,7 @@ public class InscripcionData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
 
             Conexion.msjError.add("MateriaData: actualizarNota() ->" + ex.getMessage());
         }
@@ -286,7 +286,7 @@ public class InscripcionData {
             ps.close();
             res.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("IncripcionData:  obtenerAlumnoXMAteria(int idMateria) ->" + ex.getMessage());
         }
 

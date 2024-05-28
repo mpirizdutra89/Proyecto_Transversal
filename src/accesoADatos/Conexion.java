@@ -19,8 +19,8 @@ public class Conexion {
 
     public static Connection conec = null;
     private static final String HOST = "jdbc:mariadb://localhost/";
-    private static final String USER = "lab";
-    private static final String PASS = "1234";
+    private static final String USER = "root";
+    private static final String PASS = "";
     private static final String BD = "universidadulp";
     private static final String DRIVER = "org.mariadb.jdbc.Driver";
     public static ArrayList<String> msjError = new ArrayList<String>();
@@ -50,7 +50,7 @@ public class Conexion {
      public static boolean VerificarConexion() {
         boolean activo=false;
         if (servicioMysql()) {
-            if (servicioMysql()) {
+            
 
                 try {
                     Class.forName(DRIVER);
@@ -62,7 +62,7 @@ public class Conexion {
                    
                     msjError.add("Conexion: getConexion():" + ex.getMessage());
                 }
-            }
+            
         } else {
             msjError.add("Servicio mysql esta caido.- llamada en getConeccion()");
         }

@@ -174,5 +174,9 @@ public class FuncionesComunes {
         Matcher matcher = pattern.matcher(date);
         return matcher.matches();
     }
+    
+    public static void closeAll(){
+        System.exit(0);
+    }
 
 }
