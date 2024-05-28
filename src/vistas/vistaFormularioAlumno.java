@@ -49,6 +49,8 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         btnBuscar = new java.awt.Button();
         jCfechaNac = new com.toedter.calendar.JDateChooser();
 
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+
         jLtitulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLtitulo.setText("Alumno");
 
@@ -67,19 +69,30 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         jLfechaNac.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLfechaNac.setText("Fecha de Nacimiento:");
 
+        jTextdni.setBackground(new java.awt.Color(204, 204, 204));
         jTextdni.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextdni.setForeground(new java.awt.Color(0, 0, 0));
         jTextdni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextdniActionPerformed(evt);
             }
         });
 
+        jTextapellido.setBackground(new java.awt.Color(204, 204, 204));
         jTextapellido.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextapellido.setForeground(new java.awt.Color(0, 0, 0));
 
+        jTextnombre.setBackground(new java.awt.Color(204, 204, 204));
         jTextnombre.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        jTextnombre.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnNuevo.setBackground(new java.awt.Color(102, 255, 0));
+        jCheckestado.setBackground(new java.awt.Color(102, 102, 255));
+        jCheckestado.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        jCheckestado.setForeground(new java.awt.Color(0, 0, 0));
+
+        btnNuevo.setBackground(new java.awt.Color(0, 102, 0));
         btnNuevo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnNuevo.setForeground(new java.awt.Color(204, 204, 204));
         btnNuevo.setLabel("Nuevo");
         btnNuevo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -87,8 +100,9 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        btnGuardar.setBackground(new java.awt.Color(153, 255, 0));
+        btnGuardar.setBackground(new java.awt.Color(0, 102, 0));
         btnGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnGuardar.setForeground(new java.awt.Color(204, 204, 204));
         btnGuardar.setLabel("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -96,8 +110,9 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        btnEliminar.setBackground(new java.awt.Color(255, 0, 0));
+        btnEliminar.setBackground(new java.awt.Color(153, 0, 0));
         btnEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnEliminar.setForeground(new java.awt.Color(204, 204, 204));
         btnEliminar.setLabel("Eliminar");
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,6 +123,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         btnSalir.setBackground(new java.awt.Color(153, 0, 0));
         btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnSalir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(204, 204, 204));
         btnSalir.setLabel("Salir");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -115,9 +131,10 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
             }
         });
 
-        btnBuscar.setBackground(new java.awt.Color(51, 204, 0));
+        btnBuscar.setBackground(new java.awt.Color(0, 102, 0));
         btnBuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btnBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
+        btnBuscar.setForeground(new java.awt.Color(255, 255, 255));
         btnBuscar.setLabel("Buscar");
         btnBuscar.setName("Buscar"); // NOI18N
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -125,6 +142,9 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                 btnBuscarActionPerformed(evt);
             }
         });
+
+        jCfechaNac.setBackground(new java.awt.Color(204, 204, 204));
+        jCfechaNac.setForeground(new java.awt.Color(204, 204, 204));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
