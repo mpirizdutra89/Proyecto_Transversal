@@ -1,6 +1,6 @@
 package accesoADatos;
 
-import java.sql.Connection;
+import java.sql.Statement;
 import entidades.Inscripcion;
 import accesoADatos.Conexion;
 import entidades.Alumno;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.mariadb.jdbc.Statement;
+
 
 
 /**
