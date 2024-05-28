@@ -1,19 +1,26 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
- */
 package vistas;
+
+import accesoADatos.AlumnoData;
+import entidades.Alumno;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Ferrando Carlos
  */
-public class FormularioAlumnoView extends javax.swing.JInternalFrame {
+public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
+
+    /*Instancias de alumno y alumnoData*/
+    private AlumnoData alumData = new AlumnoData();
+    private Alumno alumnoActual = null;
 
     /**
      * Creates new form FormularioAlumnoView
      */
-    public FormularioAlumnoView() {
+    public vistaFormularioAlumno() {
         initComponents();
     }
 
@@ -40,7 +47,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         btnEliminar = new java.awt.Button();
         btnSalir = new java.awt.Button();
         btnBuscar = new java.awt.Button();
-        jDateChooser2 = new com.toedter.calendar.JDateChooser();
+        jCfechaNac = new com.toedter.calendar.JDateChooser();
 
         jLtitulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLtitulo.setText("Alumno");
@@ -74,6 +81,11 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         btnNuevo.setBackground(new java.awt.Color(102, 255, 0));
         btnNuevo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnNuevo.setLabel("Nuevo");
+        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoActionPerformed(evt);
+            }
+        });
 
         btnGuardar.setBackground(new java.awt.Color(153, 255, 0));
         btnGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
@@ -98,6 +110,11 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         btnBuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         btnBuscar.setLabel("Buscar");
         btnBuscar.setName("Buscar"); // NOI18N
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -138,7 +155,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jCheckestado, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jDateChooser2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jCfechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(0, 0, Short.MAX_VALUE)))))
                 .addGap(36, 36, 36))
         );
@@ -174,7 +191,7 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jDateChooser2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jCfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(44, 44, 44)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,6 +228,40 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnGuardarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try {
+            
+            Integer dni = Integer.parseInt(jTextdni.getText());
+            alumnoActual = alumData.buscarAlumnoPorDni(dni);
+            
+            if (alumnoActual != null) {
+                jTextapellido.setText(alumnoActual.getApellido());
+                jTextnombre.setText(alumnoActual.getNombre());
+                jCheckestado.setSelected(alumnoActual.getEstado());
+                LocalDate lc = alumnoActual.getFechaNacimiento();
+                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                jCfechaNac.setDate(date);
+                
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+        limpiarCampos();
+        alumnoActual = null;
+    }//GEN-LAST:event_btnNuevoActionPerformed
+    private void limpiarCampos(){
+        
+        jTextdni.setText("");
+        jTextapellido.setText("");
+        jTextnombre.setText("");
+        jCheckestado.setSelected(true);
+        jCfechaNac.setDate(new Date());
+    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnBuscar;
@@ -218,8 +269,8 @@ public class FormularioAlumnoView extends javax.swing.JInternalFrame {
     private java.awt.Button btnGuardar;
     private java.awt.Button btnNuevo;
     private java.awt.Button btnSalir;
+    private com.toedter.calendar.JDateChooser jCfechaNac;
     private javax.swing.JCheckBox jCheckestado;
-    private com.toedter.calendar.JDateChooser jDateChooser2;
     private javax.swing.JLabel jLapellido;
     private javax.swing.JLabel jLdni;
     private javax.swing.JLabel jLestado;

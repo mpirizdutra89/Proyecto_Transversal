@@ -77,7 +77,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="jCheckestado" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="jDateChooser2" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
+                                      <Component id="jCfechaNac" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                               </Group>
@@ -128,7 +128,7 @@
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Component id="jLfechaNac" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jDateChooser2" min="-2" max="-2" attributes="0"/>
+                              <Component id="jCfechaNac" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
@@ -249,6 +249,9 @@
             </Property>
             <Property name="label" type="java.lang.String" value="Nuevo"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoActionPerformed"/>
+          </Events>
         </Component>
         <Component class="java.awt.Button" name="btnGuardar">
           <Properties>
@@ -303,8 +306,11 @@
             <Property name="label" type="java.lang.String" value="Buscar"/>
             <Property name="name" type="java.lang.String" value="Buscar" noResource="true"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="com.toedter.calendar.JDateChooser" name="jDateChooser2">
+        <Component class="com.toedter.calendar.JDateChooser" name="jCfechaNac">
         </Component>
       </SubComponents>
     </Container>
