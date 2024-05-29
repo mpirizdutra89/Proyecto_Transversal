@@ -273,21 +273,22 @@ public class InscripcionData {
         PreparedStatement ps = null;
 
         inscripcion = null;
-        String consulta = "SELECT A.idAlumno,dni,apellido, nombre, fechaNacimiento, estado FROM inscripcion I,alumno A WHERE A.idAlumno=I.idAlumno and  idMateria=?";
+        String consulta = "SELECT A.idAlumno, A.dni, A.apellido, A.nombre, A.fechaNacimiento, A.estado FROM inscripcion I,alumno A WHERE A.idAlumno=I.idAlumno AND  I.idMateria=?";
 
         try {
             ps = conec.prepareStatement(consulta);
             ps.setInt(1, idMateria);
             res = ps.executeQuery();
-            if (res.next()) {
-                int idAlumno = res.getInt("idMateria");
-                int dni = res.getInt("dni");
-                String apellido = res.getString("apellido");
-                String nombre = res.getString("nombre");
-                LocalDate fechaNacimiento = res.getDate("fechaNacimiento").toLocalDate();
-                boolean estado = res.getBoolean("estado");
+            while (res.next()) {
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(res.getInt("idMateria"));
+                alumno.setDni(res.getInt("dni"));
+                alumno.setApellido(res.getString("apellido"));
+                alumno.setNombre(res.getString("nombre"));
+                alumno.setFechaNacimiento(res.getDate("fechaNacimiento").toLocalDate());
+                alumno.setEstado(res.getBoolean("estado"));
 
-                lista.add(new Alumno(idAlumno, dni, apellido, nombre, fechaNacimiento, estado));
+                lista.add(alumno);
 
             }
             ps.close();

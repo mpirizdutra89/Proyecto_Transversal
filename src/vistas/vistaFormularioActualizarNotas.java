@@ -15,12 +15,10 @@ import static librerias.FuncionesComunes.vistaDialogoSiNo;
  */
 public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
 
-    private ArrayList<Materia> listaMaterias;
     private ArrayList<Alumno> listaAlumnos;
     private ArrayList<Inscripcion> listaInscripcion;
     
     private InscripcionData inscData;
-    private MateriaData mData;
     private AlumnoData aData;
     
     private DefaultTableModel tablaMaterias;
@@ -64,7 +62,7 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         jBGuardar = new javax.swing.JButton();
         jBSalir = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jCBseleccionarAlumno.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -173,7 +171,7 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         
         Alumno al = (Alumno) jCBseleccionarAlumno.getSelectedItem();
         listaInscripcion = inscData.obtenerInscripcionesPorAlumno(al.getIdAlumno());
-        if(listaInscripcion.size() > 0){
+        if(!listaInscripcion.isEmpty()){
             for(Inscripcion insc : listaInscripcion){
                 tablaMaterias.addRow(new Object[]{
                     insc.getMateria().getIdMateria(),
