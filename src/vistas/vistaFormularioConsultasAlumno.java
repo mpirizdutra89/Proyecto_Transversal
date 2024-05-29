@@ -8,10 +8,10 @@ package vistas;
  *
  * @author agus1
  */
-public class vistaFormularioConsultasAlumno extends javax.swing.JFrame {
+public class vistaFormularioConsultasAlumno extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form vistaFormularioConsultasAlumno
+     * Creates new form vista Formulario Consultas Alumno Por materia
      */
     public vistaFormularioConsultasAlumno() {
         initComponents();
@@ -34,7 +34,7 @@ public class vistaFormularioConsultasAlumno extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setText("jLabel1");
 

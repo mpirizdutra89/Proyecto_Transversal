@@ -109,7 +109,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
 
         jMenu4.setText("Consultas");
 
-        jMConsultaMateria.setText("Consulta Materia");
+        jMConsultaMateria.setText("Alumno por Materia");
         jMConsultaMateria.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMConsultaMateriaActionPerformed(evt);
@@ -171,7 +171,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmanipulacionNotasActionPerformed
 
     private void jMConsultaMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMConsultaMateriaActionPerformed
-        // TODO add your handling code here:
+        vistaFormularioConsultasAlumno vfca=new vistaFormularioConsultasAlumno();
+        cargarVistasInternas(vfca);
     }//GEN-LAST:event_jMConsultaMateriaActionPerformed
 
     private void jMenuSalirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSalirMouseClicked
