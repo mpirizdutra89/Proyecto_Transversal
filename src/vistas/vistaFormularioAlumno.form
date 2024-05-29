@@ -22,17 +22,20 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Component id="jPanel" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
+          </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="jPanel1">
+    <Container class="javax.swing.JPanel" name="jPanel">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="66" red="66" type="rgb"/>
@@ -43,56 +46,63 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jLestado" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLfechaNac" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLnombre" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLapellido" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jLdni" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Component id="jBnuevo" min="-2" pref="70" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jBguardar" min="-2" pref="70" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jBeliminar" min="-2" pref="70" max="-2" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="jCheckestado" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="103" alignment="1" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="jTextdni" max="32767" attributes="0"/>
-                                  <Component id="jTextapellido" max="32767" attributes="0"/>
-                                  <Component id="jTextnombre" alignment="0" pref="200" max="32767" attributes="0"/>
-                              </Group>
-                              <Component id="jCfechaNac" alignment="1" min="-2" pref="200" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jLestado" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLfechaNac" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLnombre" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLapellido" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jLdni1" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                      </Group>
-                  </Group>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" attributes="0">
-                          <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
-                          <Component id="jBbuscar" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jBsalir" min="-2" pref="70" max="-2" attributes="0"/>
+                          <Component id="jBnuevo" min="-2" pref="70" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jCheckestado" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                          <Component id="jLestado_aviso" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="157" max="-2" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" alignment="1" attributes="0">
+                                  <Component id="jBguardar" min="-2" pref="70" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                                  <Component id="jBeliminar" min="-2" pref="70" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="jCfechaNac" alignment="1" min="-2" pref="180" max="-2" attributes="0"/>
+                                      <Group type="103" alignment="1" groupAlignment="1" max="-2" attributes="0">
+                                          <Component id="jTextapellido" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jTextdni" alignment="0" pref="180" max="32767" attributes="0"/>
+                                          <Component id="jTextnombre" alignment="1" max="32767" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jBsalir" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                              <Component id="jBbuscar" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="32767" attributes="0"/>
                   <Component id="jLtitulo" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="138" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="169" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -105,38 +115,46 @@
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLdni" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Group type="103" alignment="1" groupAlignment="0" attributes="0">
+                                  <Component id="jLdni1" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                                   <Component id="jTextdni" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jBbuscar" min="-2" pref="40" max="-2" attributes="0"/>
+                              <Component id="jBbuscar" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLapellido" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextapellido" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLapellido" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jTextapellido" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="jLnombre" min="-2" pref="30" max="-2" attributes="0"/>
-                              <Component id="jTextnombre" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jLnombre" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
+                              <Component id="jTextnombre" alignment="0" min="-2" pref="30" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-                          <Component id="jLestado" min="-2" pref="30" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+                                  <Component id="jLestado" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="1" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLestado_aviso" min="-2" pref="30" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                       <Component id="jCheckestado" min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jLfechaNac" pref="30" max="32767" attributes="0"/>
-                      <Component id="jCfechaNac" pref="30" max="32767" attributes="0"/>
+                      <Component id="jLfechaNac" alignment="0" pref="30" max="32767" attributes="0"/>
+                      <Component id="jCfechaNac" alignment="0" pref="30" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jBsalir" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jBguardar" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jBeliminar" min="-2" pref="40" max="-2" attributes="0"/>
-                      <Component id="jBnuevo" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jBsalir" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jBguardar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jBeliminar" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
+                      <Component id="jBnuevo" alignment="0" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="43" max="32767" attributes="0"/>
               </Group>
@@ -152,7 +170,7 @@
             <Property name="text" type="java.lang.String" value="Sistema de Alumnos"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLdni">
+        <Component class="javax.swing.JLabel" name="jLdni1">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Roboto" size="14" style="0"/>
@@ -174,6 +192,14 @@
               <Font name="Roboto" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Nombre:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLestado_aviso">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Roboto" size="10" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Marcar para activar"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLestado">
@@ -204,11 +230,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jLdni"/>
-            </Property>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextapellido">
           <Properties>
@@ -222,11 +243,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jLapellido"/>
-            </Property>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JTextField" name="jTextnombre">
           <Properties>
@@ -240,11 +256,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jLnombre"/>
-            </Property>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="jCheckestado">
           <Properties>
@@ -258,11 +269,6 @@
               <Color blue="0" green="0" red="0" type="rgb"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleParent" type="javax.accessibility.Accessible" editor="org.netbeans.modules.form.ComponentChooserEditor">
-              <ComponentRef name="jLestado"/>
-            </Property>
-          </AccessibilityProperties>
         </Component>
         <Component class="javax.swing.JButton" name="jBbuscar">
           <Properties>
@@ -286,9 +292,6 @@
               <Dimension value="[70, 40]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jBbuscar"/>
-          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBbuscarActionPerformed"/>
           </Events>
@@ -314,9 +317,6 @@
               <Dimension value="[70, 40]"/>
             </Property>
           </Properties>
-          <AccessibilityProperties>
-            <Property name="AccessibleContext.accessibleName" type="java.lang.String" value="jBsalir"/>
-          </AccessibilityProperties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBsalirActionPerformed"/>
           </Events>
