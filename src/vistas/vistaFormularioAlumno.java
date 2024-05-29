@@ -294,6 +294,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un DNI válido");
         }
+        limpiarCampos();
     }//GEN-LAST:event_jBguardarActionPerformed
 
     private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
@@ -327,7 +328,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
             }
 
         } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+            JOptionPane.showMessageDialog(this, "Debe ingresar un número válido");
         }
     }//GEN-LAST:event_jBbuscarActionPerformed
     private void limpiarCampos() {
