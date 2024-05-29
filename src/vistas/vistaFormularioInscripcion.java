@@ -69,9 +69,12 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jBtnAnular = new javax.swing.JButton();
         jBtnSalir = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(102, 102, 255));
         setIconifiable(true);
         setResizable(true);
         setTitle("Formulario Inscripcion");
+
+        jPnlContenedorFrm.setBackground(new java.awt.Color(102, 102, 255));
 
         jLabel1.setText("Seleccione un alumno:");
 
@@ -154,21 +157,26 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGap(14, 14, 14))
         );
 
-        jBtnInscripcion.setText("Inscripcion");
+        jPanel1.setBackground(new java.awt.Color(102, 102, 255));
+
+        jBtnInscripcion.setBackground(new java.awt.Color(0, 102, 0));
+        jBtnInscripcion.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/libro.png"))); // NOI18N
         jBtnInscripcion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnInscripcionActionPerformed(evt);
             }
         });
 
-        jBtnAnular.setText("Anular Inscripcion");
+        jBtnAnular.setBackground(new java.awt.Color(153, 0, 0));
+        jBtnAnular.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/acceso-denegado.png"))); // NOI18N
         jBtnAnular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnAnularActionPerformed(evt);
             }
         });
 
-        jBtnSalir.setText("Salir");
+        jBtnSalir.setBackground(new java.awt.Color(153, 0, 0));
+        jBtnSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrar-sesion.png"))); // NOI18N
         jBtnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBtnSalirActionPerformed(evt);
@@ -184,7 +192,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 .addComponent(jBtnInscripcion)
                 .addGap(18, 18, 18)
                 .addComponent(jBtnAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addGap(16, 16, 16))
         );
