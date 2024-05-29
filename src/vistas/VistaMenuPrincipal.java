@@ -1,7 +1,11 @@
 package vistas;
 
 import entidades.Alumno;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.util.ArrayList;
+import javax.swing.ImageIcon;
 import javax.swing.JInternalFrame;
 
 /**
@@ -16,6 +20,12 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     public VistaMenuPrincipal() {
         initComponents();
 
+    }
+    
+    @Override
+    public Image getIconImage(){
+        Image retValue = Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource("recursos/ulp_logo_1.png"));
+        return retValue;
     }
 
     /**
@@ -39,6 +49,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         jMenuSalir = new javax.swing.JMenu();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ULP Gestion");
+        setIconImage(getIconImage());
 
         javax.swing.GroupLayout jDpEscritorioLayout = new javax.swing.GroupLayout(jDpEscritorio);
         jDpEscritorio.setLayout(jDpEscritorioLayout);
@@ -48,7 +60,7 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
         );
         jDpEscritorioLayout.setVerticalGroup(
             jDpEscritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 682, Short.MAX_VALUE)
+            .addGap(0, 684, Short.MAX_VALUE)
         );
 
         jMenu1.setText("Alumno");
