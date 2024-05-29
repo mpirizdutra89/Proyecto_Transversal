@@ -67,10 +67,10 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         jLnombre.setText("Nombre:");
 
         jLestado_aviso.setFont(new java.awt.Font("Roboto", 0, 10)); // NOI18N
-        jLestado_aviso.setText("Marcar para activar");
+        jLestado_aviso.setText("Destildar casilla para inhabilitar");
 
         jLestado.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jLestado.setText("Estado:");
+        jLestado.setText("Estado:           (Activo)");
 
         jLfechaNac.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLfechaNac.setText("Fecha de Nacimiento:");
