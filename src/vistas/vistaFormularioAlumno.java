@@ -42,13 +42,12 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         jTextapellido = new javax.swing.JTextField();
         jTextnombre = new javax.swing.JTextField();
         jCheckestado = new javax.swing.JCheckBox();
-        btnNuevo = new java.awt.Button();
-        btnGuardar = new java.awt.Button();
-        btnEliminar = new java.awt.Button();
-        btnSalir = new java.awt.Button();
-        jBbuscar = new java.awt.Button();
         jCfechaNac = new com.toedter.calendar.JDateChooser();
-        jButton1 = new javax.swing.JButton();
+        jBbuscar = new javax.swing.JButton();
+        jBsalir = new javax.swing.JButton();
+        jBeliminar = new javax.swing.JButton();
+        jBguardar = new javax.swing.JButton();
+        jBnuevo = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
 
@@ -86,65 +85,72 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         jCheckestado.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jCheckestado.setForeground(new java.awt.Color(0, 0, 0));
 
-        btnNuevo.setBackground(new java.awt.Color(0, 102, 0));
-        btnNuevo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnNuevo.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnNuevo.setForeground(new java.awt.Color(204, 204, 204));
-        btnNuevo.setLabel("Nuevo");
-        btnNuevo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnNuevoActionPerformed(evt);
-            }
-        });
+        jCfechaNac.setBackground(new java.awt.Color(204, 204, 204));
+        jCfechaNac.setForeground(new java.awt.Color(204, 204, 204));
 
-        btnGuardar.setBackground(new java.awt.Color(0, 102, 0));
-        btnGuardar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnGuardar.setForeground(new java.awt.Color(204, 204, 204));
-        btnGuardar.setLabel("Guardar");
-        btnGuardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGuardarActionPerformed(evt);
-            }
-        });
-
-        btnEliminar.setBackground(new java.awt.Color(153, 0, 0));
-        btnEliminar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnEliminar.setForeground(new java.awt.Color(204, 204, 204));
-        btnEliminar.setLabel("Eliminar");
-        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarActionPerformed(evt);
-            }
-        });
-
-        btnSalir.setBackground(new java.awt.Color(153, 0, 0));
-        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        btnSalir.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        btnSalir.setForeground(new java.awt.Color(204, 204, 204));
-        btnSalir.setLabel("Salir");
-        btnSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSalirActionPerformed(evt);
-            }
-        });
-
-        jBbuscar.setIcon(new ImageIcon());
         jBbuscar.setBackground(new java.awt.Color(0, 102, 0));
-        jBbuscar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jBbuscar.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
-        jBbuscar.setForeground(new java.awt.Color(255, 255, 255));
-        jBbuscar.setLabel("Buscar");
-        jBbuscar.setName("Buscar"); // NOI18N
+        jBbuscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/lupa.png"))); // NOI18N
+        jBbuscar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBbuscar.setMargin(new java.awt.Insets(5, 14, 5, 14));
+        jBbuscar.setMaximumSize(new java.awt.Dimension(70, 40));
+        jBbuscar.setMinimumSize(new java.awt.Dimension(70, 40));
+        jBbuscar.setPreferredSize(new java.awt.Dimension(70, 40));
         jBbuscar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBbuscarActionPerformed(evt);
             }
         });
 
-        jCfechaNac.setBackground(new java.awt.Color(204, 204, 204));
-        jCfechaNac.setForeground(new java.awt.Color(204, 204, 204));
+        jBsalir.setBackground(new java.awt.Color(153, 0, 0));
+        jBsalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrar-sesion.png"))); // NOI18N
+        jBsalir.setMargin(new java.awt.Insets(5, 14, 5, 14));
+        jBsalir.setMaximumSize(new java.awt.Dimension(70, 40));
+        jBsalir.setMinimumSize(new java.awt.Dimension(70, 40));
+        jBsalir.setPreferredSize(new java.awt.Dimension(70, 40));
+        jBsalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBsalirActionPerformed(evt);
+            }
+        });
 
-        jButton1.setText("jButton1");
+        jBeliminar.setBackground(new java.awt.Color(153, 0, 0));
+        jBeliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/basura.png"))); // NOI18N
+        jBeliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBeliminar.setMargin(new java.awt.Insets(5, 14, 5, 14));
+        jBeliminar.setMaximumSize(new java.awt.Dimension(70, 40));
+        jBeliminar.setMinimumSize(new java.awt.Dimension(70, 40));
+        jBeliminar.setPreferredSize(new java.awt.Dimension(70, 40));
+        jBeliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBeliminarActionPerformed(evt);
+            }
+        });
+
+        jBguardar.setBackground(new java.awt.Color(0, 102, 0));
+        jBguardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar-el-archivo.png"))); // NOI18N
+        jBguardar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBguardar.setMargin(new java.awt.Insets(5, 14, 5, 14));
+        jBguardar.setMaximumSize(new java.awt.Dimension(70, 40));
+        jBguardar.setMinimumSize(new java.awt.Dimension(70, 40));
+        jBguardar.setPreferredSize(new java.awt.Dimension(70, 40));
+        jBguardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBguardarActionPerformed(evt);
+            }
+        });
+
+        jBnuevo.setBackground(new java.awt.Color(0, 102, 0));
+        jBnuevo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/nueva-cuenta.png"))); // NOI18N
+        jBnuevo.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jBnuevo.setMargin(new java.awt.Insets(5, 14, 5, 14));
+        jBnuevo.setMaximumSize(new java.awt.Dimension(70, 40));
+        jBnuevo.setMinimumSize(new java.awt.Dimension(70, 40));
+        jBnuevo.setPreferredSize(new java.awt.Dimension(70, 40));
+        jBnuevo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBnuevoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -153,7 +159,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(241, 241, 241)
                 .addComponent(jLtitulo)
-                .addGap(0, 215, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -163,30 +169,29 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jLnombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLapellido, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLdni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(jBnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jCheckestado, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jCfechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 146, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextdni)
+                            .addComponent(jTextapellido)
+                            .addComponent(jTextnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
+                        .addGap(35, 35, 35)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jTextdni)
-                                .addComponent(jTextapellido)
-                                .addComponent(jTextnombre, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(40, 40, 40)
-                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jBbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))))
+                            .addComponent(jBsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jBguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jBeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jCheckestado, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jCfechaNac, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 143, Short.MAX_VALUE))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -194,26 +199,18 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLtitulo)
+                        .addGap(15, 15, 15)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLtitulo)
-                                        .addGap(30, 30, 30)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jTextdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jBbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(1, 1, 1)))
-                                .addGap(30, 30, 30)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(30, 30, 30))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addComponent(jButton1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jTextdni, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jBbuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextapellido, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jTextnombre, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -221,24 +218,24 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                         .addComponent(jLestado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jCheckestado, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(30, 30, 30)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jCfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(44, 44, 44)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnNuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCfechaNac, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jBsalir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBguardar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBeliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jBnuevo, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         jTextdni.getAccessibleContext().setAccessibleParent(jLdni);
         jTextapellido.getAccessibleContext().setAccessibleParent(jLapellido);
         jTextnombre.getAccessibleContext().setAccessibleParent(jLnombre);
         jCheckestado.getAccessibleContext().setAccessibleParent(jLestado);
+        jBbuscar.getAccessibleContext().setAccessibleName("jBbuscar");
+        jBsalir.getAccessibleContext().setAccessibleName("jBsalir");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -254,7 +251,42 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+    private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
+        try {
+
+            Integer dni = Integer.parseInt(jTextdni.getText());
+            alumnoActual = alumData.buscarAlumnoPorDni(dni);
+
+            if (alumnoActual != null) {
+                jTextapellido.setText(alumnoActual.getApellido());
+                jTextnombre.setText(alumnoActual.getNombre());
+                jCheckestado.setSelected(alumnoActual.getEstado());
+                LocalDate lc = alumnoActual.getFechaNacimiento();
+                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                jCfechaNac.setDate(date);
+
+            }
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
+        }
+    }//GEN-LAST:event_jBbuscarActionPerformed
+
+    private void jBsalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBsalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBsalirActionPerformed
+
+    private void jBeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBeliminarActionPerformed
+        if (alumnoActual != null) {
+            alumData.eliminarAlumno(alumnoActual.getIdAlumno());
+            alumnoActual = null;
+            limpiarCampos();
+        } else {
+            JOptionPane.showMessageDialog(null, "No hay un alumno seleccionado");
+        }
+    }//GEN-LAST:event_jBeliminarActionPerformed
+
+    private void jBguardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBguardarActionPerformed
         try {
             Integer dni = Integer.parseInt(jTextdni.getText());
             String nombre = jTextnombre.getText();
@@ -281,47 +313,12 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "Debe ingresar un DNI válido");
         }
-    }//GEN-LAST:event_btnGuardarActionPerformed
+    }//GEN-LAST:event_jBguardarActionPerformed
 
-    private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
+    private void jBnuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBnuevoActionPerformed
         limpiarCampos();
         alumnoActual = null;
-    }//GEN-LAST:event_btnNuevoActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        if (alumnoActual != null) {
-            alumData.eliminarAlumno(alumnoActual.getIdAlumno());
-            alumnoActual = null;
-            limpiarCampos();
-        } else {
-            JOptionPane.showMessageDialog(null, "No hay un alumno seleccionado");
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
-
-    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_btnSalirActionPerformed
-
-    private void jBbuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBbuscarActionPerformed
-        try {
-
-            Integer dni = Integer.parseInt(jTextdni.getText());
-            alumnoActual = alumData.buscarAlumnoPorDni(dni);
-
-            if (alumnoActual != null) {
-                jTextapellido.setText(alumnoActual.getApellido());
-                jTextnombre.setText(alumnoActual.getNombre());
-                jCheckestado.setSelected(alumnoActual.getEstado());
-                LocalDate lc = alumnoActual.getFechaNacimiento();
-                java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
-                jCfechaNac.setDate(date);
-
-            }
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Debe ingresar un número válido");
-        }
-    }//GEN-LAST:event_jBbuscarActionPerformed
+    }//GEN-LAST:event_jBnuevoActionPerformed
     private void limpiarCampos() {
 
         jTextdni.setText("");
@@ -333,12 +330,11 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private java.awt.Button btnEliminar;
-    private java.awt.Button btnGuardar;
-    private java.awt.Button btnNuevo;
-    private java.awt.Button btnSalir;
-    private java.awt.Button jBbuscar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBbuscar;
+    private javax.swing.JButton jBeliminar;
+    private javax.swing.JButton jBguardar;
+    private javax.swing.JButton jBnuevo;
+    private javax.swing.JButton jBsalir;
     private com.toedter.calendar.JDateChooser jCfechaNac;
     private javax.swing.JCheckBox jCheckestado;
     private javax.swing.JLabel jLapellido;
