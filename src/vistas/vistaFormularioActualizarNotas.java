@@ -1,19 +1,19 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package vistas;
 
 import accesoADatos.*;
 import entidades.*;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
+import static librerias.FuncionesComunes.validarDoubles;
+import static librerias.FuncionesComunes.validarNumericos;
+import static librerias.FuncionesComunes.vistaDialogoSiNo;
 
 /**
  *
  * @author agus1
  */
-public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
+public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
 
     private ArrayList<Materia> listaMaterias;
     private ArrayList<Alumno> listaAlumnos;
@@ -29,10 +29,21 @@ public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
         initComponents();
         aData = new AlumnoData();
         listaAlumnos = (ArrayList<Alumno>) aData.listarAlumnos();
-        tablaMaterias = new DefaultTableModel();
+        tablaMaterias = new DefaultTableModel(){
+
+        @Override
+        public boolean isCellEditable(int f, int c) {
+            if(c == 2){
+            return true;
+            }
+            return false;
+        }};
+        
+        
         inscData = new InscripcionData();
         
         cargarAlumnos();
+        armarTabla();
     }
 
     /**
@@ -79,8 +90,18 @@ public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTMateria);
 
         jBGuardar.setText("Guardar");
+        jBGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBGuardarActionPerformed(evt);
+            }
+        });
 
         jBSalir.setText("Salir");
+        jBSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBSalirActionPerformed(evt);
+            }
+        });
 
         jDesktopPane1.setLayer(jCBseleccionarAlumno, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -147,6 +168,9 @@ public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jCBseleccionarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBseleccionarAlumnoActionPerformed
+        
+        borrarFilas();
+        
         Alumno al = (Alumno) jCBseleccionarAlumno.getSelectedItem();
         listaInscripcion = inscData.obtenerInscripcionesPorAlumno(al.getIdAlumno());
         if(listaInscripcion.size() > 0){
@@ -159,6 +183,37 @@ public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_jCBseleccionarAlumnoActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        int filaSelec = jTMateria.getSelectedRow();
+            if(filaSelec != -1){
+            Alumno a = (Alumno) jCBseleccionarAlumno.getSelectedItem();
+            int idMat = (Integer) tablaMaterias.getValueAt(filaSelec, 0);
+            String notaStr = tablaMaterias.getValueAt(filaSelec, 2).toString();
+            
+            if (!validarNumericos(notaStr) && !validarDoubles(notaStr)) {
+            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la nota");
+            return;
+            }
+            
+            if (!vistaDialogoSiNo()) {
+            return;
+            }
+            
+            double nota = Double.parseDouble(notaStr);
+            inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
+            
+            borrarFilas();
+            JOptionPane.showMessageDialog(this,"Nota actualizada exitosamente");
+
+            }else{
+                JOptionPane.showMessageDialog(this,"Seleccione una materia para actualizar nota");
+            }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -204,14 +259,14 @@ public class vistaFormularioActualizarNotas extends javax.swing.JFrame {
     
     private void armarTabla(){
         tablaMaterias.addColumn("Codigo");
-        tablaMaterias.addColumn("Nombre");
+        tablaMaterias.addColumn("Materia");
         tablaMaterias.addColumn("Nota");
         jTMateria.setModel(tablaMaterias);
     }
     
     private void borrarFilas(){
-        int indice = tablaMaterias.getRowCount() -1;
-        for(int i = indice; i >= 0; i++){
+        int indice = tablaMaterias.getRowCount();
+        for(int i = indice -1; i >= 0; i--){
             tablaMaterias.removeRow(i);
         }
     

@@ -163,7 +163,10 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMmanejoInscripcionesActionPerformed
 
     private void jMmanipulacionNotasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmanipulacionNotasActionPerformed
-        // TODO add your handling code here:
+        
+        vistaFormularioActualizarNotas vfan = new vistaFormularioActualizarNotas();
+        
+        cargarVistasInternas(vfan);
     }//GEN-LAST:event_jMmanipulacionNotasActionPerformed
 
     private void jMConsultaMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMConsultaMateriaActionPerformed

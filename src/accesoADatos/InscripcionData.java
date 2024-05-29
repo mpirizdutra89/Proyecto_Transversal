@@ -32,6 +32,8 @@ public class InscripcionData {
 
     public InscripcionData() {
         conec = Conexion.getConexion();
+        alumData = new AlumnoData();
+        mateData = new MateriaData();
     }
     
     public void guardarInscripcion(Inscripcion insc){
@@ -101,7 +103,10 @@ public class InscripcionData {
         ResultSet rs = null;
         PreparedStatement ps = null;
         
-        String query = "SELECT * FROM inscripcion WHERE idAlumno = ? ";
+        String query = "SELECT idInscripto,idAlumno, m.idMateria, m.nombre, nota "
+                     + "FROM inscripcion i JOIN materia m "
+                     + "ON (i.idMateria = m.idMateria) "
+                     + "WHERE idAlumno = ?";
         
         try {
             ps = conec.prepareStatement(query);
@@ -113,6 +118,8 @@ public class InscripcionData {
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
                 Alumno al = alumData.buscarAlumno(rs.getInt("idAlumno"));
                 Materia mat = mateData.buscarMateria(rs.getInt("idMateria"));
+                mat.setNombre(rs.getString("nombre"));
+                
                 insc.setAlumno(al);
                 insc.setMateria(mat);
                 insc.setNota(rs.getDouble("nota"));
