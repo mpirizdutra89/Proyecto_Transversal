@@ -324,9 +324,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
                 LocalDate lc = alumnoActual.getFechaNacimiento();
                 java.util.Date date = java.util.Date.from(lc.atStartOfDay(ZoneId.systemDefault()).toInstant());
                 jCfechaNac.setDate(date);
-
             }
-
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(this, "Debe ingresar un número válido");
         }
