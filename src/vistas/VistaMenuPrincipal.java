@@ -150,7 +150,8 @@ public class VistaMenuPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuAlumnoActionPerformed
 
     private void jMmateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmateriaActionPerformed
-        // TODO add your handling code here:
+     FormularioMateria fm=new FormularioMateria();
+        cargarVistasInternas(fm);
     }//GEN-LAST:event_jMmateriaActionPerformed
 
     private void jMmanejoInscripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMmanejoInscripcionesActionPerformed
