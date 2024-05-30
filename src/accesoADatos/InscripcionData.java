@@ -281,7 +281,7 @@ public class InscripcionData {
             res = ps.executeQuery();
             while (res.next()) {
                 Alumno alumno = new Alumno();
-                alumno.setIdAlumno(res.getInt("idMateria"));
+                alumno.setIdAlumno(res.getInt("idAlumno"));
                 alumno.setDni(res.getInt("dni"));
                 alumno.setApellido(res.getString("apellido"));
                 alumno.setNombre(res.getString("nombre"));
