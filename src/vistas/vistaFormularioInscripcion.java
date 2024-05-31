@@ -72,12 +72,14 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         setBackground(new java.awt.Color(102, 102, 255));
         setIconifiable(true);
         setResizable(true);
-        setTitle("Formulario Inscripcion");
+        setTitle("Formulario Inscripción");
 
         jPnlContenedorFrm.setBackground(new java.awt.Color(102, 102, 255));
 
+        jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel1.setText("Seleccione un alumno:");
 
+        jTblData.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
         jTblData.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null},
@@ -97,9 +99,10 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Roboto", 1, 18)); // NOI18N
         jLabel2.setText("Listado de Materias");
 
+        jRbInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRbInscriptas.setText("Materias Inscriptas");
         jRbInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -107,6 +110,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
             }
         });
 
+        jRbNoInscriptas.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jRbNoInscriptas.setText("Materia no inscriptas");
         jRbNoInscriptas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -122,22 +126,24 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                 .addGroup(jPnlContenedorFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(jPnlContenedorFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jCbAlumnos, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jCbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
                         .addGap(107, 107, 107)
                         .addComponent(jLabel2)))
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jRbInscriptas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jRbNoInscriptas)
-                .addGap(97, 97, 97))
+                .addGroup(jPnlContenedorFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPnlContenedorFrmLayout.createSequentialGroup()
+                        .addComponent(jRbInscriptas)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jRbNoInscriptas)
+                        .addGap(97, 97, 97))))
         );
         jPnlContenedorFrmLayout.setVerticalGroup(
             jPnlContenedorFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -147,14 +153,14 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                     .addComponent(jLabel1)
                     .addComponent(jCbAlumnos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
-                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(jPnlContenedorFrmLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jRbInscriptas)
                     .addComponent(jRbNoInscriptas))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
+                .addContainerGap())
         );
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 255));
@@ -188,11 +194,11 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addContainerGap()
                 .addComponent(jBtnInscripcion)
-                .addGap(18, 18, 18)
+                .addGap(33, 33, 33)
                 .addComponent(jBtnAnular, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addComponent(jBtnSalir)
                 .addGap(16, 16, 16))
         );
