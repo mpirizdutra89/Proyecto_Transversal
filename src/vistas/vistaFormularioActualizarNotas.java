@@ -4,6 +4,8 @@ import accesoADatos.*;
 import entidades.*;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import static librerias.FuncionesComunes.validarDoubles;
 import static librerias.FuncionesComunes.validarNumericos;
@@ -42,6 +44,7 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         
         cargarAlumnos();
         armarTabla();
+        
     }
 
     /**
@@ -179,7 +182,11 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         
         Alumno al = (Alumno) jCBseleccionarAlumno.getSelectedItem();
         listaInscripcion = inscData.obtenerInscripcionesPorAlumno(al.getIdAlumno());
-        if(!listaInscripcion.isEmpty()){
+        
+        if(listaInscripcion.isEmpty()) {
+        JOptionPane.showMessageDialog(this, "El alumno no está inscrito en ninguna materia.");
+        JOptionPane.showMessageDialog(this, "Visite primero el formulario de inscripcion, gracias");
+        }else{
             for(Inscripcion insc : listaInscripcion){
                 tablaMaterias.addRow(new Object[]{
                     insc.getMateria().getIdMateria(),
@@ -196,22 +203,21 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
             Alumno a = (Alumno) jCBseleccionarAlumno.getSelectedItem();
             int idMat = (Integer) tablaMaterias.getValueAt(filaSelec, 0);
             String notaStr = tablaMaterias.getValueAt(filaSelec, 2).toString();
+
+            double nota = Double.parseDouble(notaStr);
             
-            if (!validarNumericos(notaStr) && !validarDoubles(notaStr)) {
-            JOptionPane.showMessageDialog(this, "Ingrese un número válido para la nota");
+            if (nota > 10) {
+            JOptionPane.showMessageDialog(this, "La nota a ingresar no puede ser mayor a 10");
             return;
             }
             
             if (!vistaDialogoSiNo()) {
             return;
             }
-            
-            double nota = Double.parseDouble(notaStr);
+
             inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
-            
             borrarFilas();
             JOptionPane.showMessageDialog(this,"Nota actualizada exitosamente");
-
             }else{
                 JOptionPane.showMessageDialog(this,"Seleccione una materia para actualizar nota");
             }
