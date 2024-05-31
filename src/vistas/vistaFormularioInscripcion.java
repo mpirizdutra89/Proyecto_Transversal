@@ -41,7 +41,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
 
         } else {
             this.dispose();
-            librerias.FuncionesComunes.vistaDialogo("No hay alumnos o materia con las que interactura. Ingrese datos en sus respectivos formularios.", 0);
+            librerias.FuncionesComunes.vistaDialogo("No hay alumnos o materia con las que interactura. Ingrese datos en sus respectivos formularios.", 0,this);
 
         }
 
@@ -352,7 +352,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                     });
                 }
             }else {
-                FuncionesComunes.vistaDialogo("El alumno no esta inscripto a nada", 1);
+                FuncionesComunes.vistaDialogo("El alumno no esta inscripto a nada", 1,this);
                 if (jRbInscriptas.isSelected()) {
                     jRbInscriptas.setSelected(false);
                     jRbNoInscriptas.setSelected(true);
@@ -376,7 +376,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
                     });
                 }
             }else {
-                FuncionesComunes.vistaDialogo("Todas la materias estan ciendo cursada", 1);
+                FuncionesComunes.vistaDialogo("Todas la materias estan ciendo cursada", 1,this);
                 if (jRbNoInscriptas.isSelected()) {
                      jRbNoInscriptas.setSelected(false);
                     jRbInscriptas.setSelected(true);
@@ -410,7 +410,7 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
             dataInscripcion.guardarInscripcion(inscripcion);
             materias(false);
         }else{
-            librerias.FuncionesComunes.vistaDialogo("Seleccione una materia", 1);
+            librerias.FuncionesComunes.vistaDialogo("Seleccione una materia", 1,this);
         }
         
     }
