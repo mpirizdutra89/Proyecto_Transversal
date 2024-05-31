@@ -55,7 +55,7 @@ public class vistaFormularioAlumno extends javax.swing.JInternalFrame {
         jPanel.setBackground(new java.awt.Color(102, 102, 255));
 
         jLtitulo.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
-        jLtitulo.setText("Sistema de Alumnos");
+        jLtitulo.setText("Gestión de Alumnos");
 
         jLdni1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLdni1.setText("Documento:");
