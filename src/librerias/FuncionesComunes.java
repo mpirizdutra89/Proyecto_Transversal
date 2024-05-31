@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import entidades.EncabezadoMateria;
+import javax.swing.JInternalFrame;
 import javax.swing.SwingConstants;
 /**
  *
@@ -140,9 +141,15 @@ public class FuncionesComunes {
      public static void vistaDialogo(String msj, String titulo, int tipo) {
         JOptionPane.showMessageDialog(null, msj, titulo, tipo);
     }
+      public static void vistaDialogo(String msj, String titulo, int tipo,JInternalFrame jif) {
+        JOptionPane.showMessageDialog(jif, msj, titulo, tipo);
+    }
 
     public static void vistaDialogo(String msj, int tipo) {
         JOptionPane.showMessageDialog(null, msj, "", tipo);
+    }
+     public static void vistaDialogo(String msj, int tipo,JInternalFrame jif) {
+        JOptionPane.showMessageDialog(jif, msj, "", tipo);
     }
 //devuelve true si acepta
     public static boolean vistaDialogoSiNo() {

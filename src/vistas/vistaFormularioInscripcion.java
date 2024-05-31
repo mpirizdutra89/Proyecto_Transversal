@@ -382,11 +382,15 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
     }
 
     private void anularInscripcion() {
-        
-        int idMateria=obtenerMateria();
-        boolean res= dataInscripcion.borrarInscripcionMateriaALumno(alumnoSelec.getIdAlumno(), idMateria);
-        if(res){
-           materias(true);
+
+        int idMateria = obtenerMateria();
+        if (idMateria != -1) {
+            boolean res = dataInscripcion.borrarInscripcionMateriaALumno(alumnoSelec.getIdAlumno(), idMateria);
+            if (res) {
+                materias(true);
+            }
+        } else {
+            librerias.FuncionesComunes.vistaDialogo("Seleccione una materia", 1,this);
         }
     }
     
@@ -395,10 +399,14 @@ public class vistaFormularioInscripcion extends javax.swing.JInternalFrame {
         int idMateria=obtenerMateria();
         Materia materia=new Materia();
         materia.setIdMateria(idMateria);
+        if (idMateria != -1) {
+            Inscripcion inscripcion = new Inscripcion(alumnoSelec, materia, 0.00);
+            dataInscripcion.guardarInscripcion(inscripcion);
+            materias(false);
+        }else{
+            librerias.FuncionesComunes.vistaDialogo("Seleccione una materia", 1);
+        }
         
-        Inscripcion inscripcion=new Inscripcion(alumnoSelec,materia,0.00);
-        dataInscripcion.guardarInscripcion(inscripcion);
-         materias(false);
     }
     
     
