@@ -1,8 +1,10 @@
 
 package vistas;
 
+import accesoADatos.MateriaData;
 import entidades.Materia;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import javax.swing.JOptionPane;
 /**
@@ -12,6 +14,8 @@ import javax.swing.JOptionPane;
 public class FormularioMateria extends javax.swing.JInternalFrame {
 
     private List<Materia> listaDeMaterias = new ArrayList<>();
+    private MateriaData mData = new MateriaData();
+    private Materia m = null;
     
     
     public FormularioMateria() {
@@ -204,78 +208,77 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtNombreKeyTyped
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-         String codigo = txtCodigo.getText().trim();
+            if (!txtCodigo.isEnabled()) {
+        // Si el campo de código está deshabilitado, habilitarlo y mostrar un mensaje
+        txtCodigo.setEnabled(true);
+        JOptionPane.showMessageDialog(this, "Espacio para código disponible nuevamente. Ingrese el código.");
+    } else {
+        btnGuardar.setEnabled(false); 
+        String codigo = txtCodigo.getText().trim();
 
         if (codigo.isEmpty()) {
             JOptionPane.showMessageDialog(this, "El código es obligatorio para buscar.");
             return;
         }
-
-        Materia materia = buscarMateriaPorCodigo(codigo);
-
+        try {
+        int id = Integer.parseInt(codigo);
+            if (id <= 0) {
+            JOptionPane.showMessageDialog(this, "El código debe ser un número entero positivo.");
+            return;
+            }
+            
+        MateriaData materiaData = new MateriaData();
+        Materia materia = materiaData.buscarMateria(id);
+        
         if (materia != null) {
             txtNombre.setText(materia.getNombre());
-            txtAno.setText(String.valueOf(materia.getAno()));
+            txtAno.setText(String.valueOf(materia.getAño()));
             jRadioButton1.setSelected(materia.isEstado());
         } else {
             JOptionPane.showMessageDialog(this, "Materia no encontrada.");
-        }
-    }                                         
+            limpiarCampos();
 
-    private Materia buscarMateriaPorCodigo(String codigo) {
-        for (Materia materia : listaDeMaterias) {
-            if (materia.getCodigo().equals(codigo)) {
-                return materia;
-            }
         }
-        return null;
-    
+     }catch(NumberFormatException ex){
+         JOptionPane.showMessageDialog(this, "El código debe ser un número entero.");
+     }
+     }
     }//GEN-LAST:event_btnBuscarActionPerformed
 
     private void btnNuevoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoActionPerformed
-        txtCodigo.setText("");
-        txtNombre.setText("");
-        txtAno.setText("");
-        jRadioButton1.setSelected(false);
+        txtCodigo.setEnabled(false);
+        btnGuardar.setEnabled(true);
+        limpiarCampos();
+        m = null;
              
     }//GEN-LAST:event_btnNuevoActionPerformed
 
     private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        String codigo = txtCodigo.getText().trim();
+    String codigo = txtCodigo.getText().trim();
 
-        if (codigo.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "El código es obligatorio para eliminar.");
-            return;
+    if (!codigo.isEmpty()) {
+        try {
+            int id = Integer.parseInt(codigo);
+            mData.eliminarMateria(id);
+            JOptionPane.showMessageDialog(null, "Materia eliminada exitosamente.");
+            limpiarCampos();
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "El código debe ser un número entero válido.");
         }
-
-        boolean eliminado = eliminarMateriaPorCodigo(codigo);
-
-        if (eliminado) {
-            JOptionPane.showMessageDialog(this, "Materia eliminada exitosamente.");
-            btnNuevoActionPerformed(evt);
-        } else {
-            JOptionPane.showMessageDialog(this, "Materia no encontrada.");
-        }
-    }                                           
-
-    private boolean eliminarMateriaPorCodigo(String codigo) {
-        for (Materia materia : listaDeMaterias) {
-            if (materia.getCodigo().equals(codigo)) {
-                listaDeMaterias.remove(materia);
-                return true;
-            }
-        }
-        return false;
+    } else {
+        JOptionPane.showMessageDialog(null, "El código es obligatorio para eliminar.");
+    }
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        String codigo = txtCodigo.getText().trim();
+
+        try {
+
         String nombre = txtNombre.getText().trim();
         String anoStr = txtAno.getText().trim();
-        boolean estado = jRadioButton1.isSelected();
 
-        if (codigo.isEmpty() || nombre.isEmpty() || anoStr.isEmpty()) {
-            JOptionPane.showMessageDialog(this, "Todos los campos son obligatorios.");
+        if (nombre.isEmpty() || anoStr.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Todos los campos menos codigo son obligatorios.");
             return;
         }
 
@@ -286,16 +289,25 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "El año debe ser un número entero.");
             return;
         }
-     
 
-        Materia materia = new Materia(codigo, nombre, ano, estado); 
-        guardarMateria(materia);
+        boolean estado = jRadioButton1.isSelected();
+
+        if (m == null) {
+            m = new Materia(nombre, ano, estado);
+            mData.guardarMateria(m);
+        } else {
+            m.setNombre(nombre);
+            m.setAño(ano);
+            m.setEstado(estado);
+            mData.modificarMateria(m);
+        }
+
         JOptionPane.showMessageDialog(this, "Materia guardada exitosamente.");
-        btnNuevoActionPerformed(evt);
-    }                                          
+        limpiarCampos();
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Debe ingresar un año válido.");
+    }                                        
 
-    private void guardarMateria(Materia materia) {
-        listaDeMaterias.add(materia);
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
@@ -307,8 +319,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
             System.out.println("El radio button está seleccionado");
         } else {
             System.out.println("El radio button está deseleccionado");
-        }                                          
-
+        }                             
+        
     }//GEN-LAST:event_jRadioButton1ActionPerformed
 
     /**
@@ -345,6 +357,13 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
                 new FormularioMateria().setVisible(true);
             }
         });
+    }
+        private void limpiarCampos() {
+
+        txtCodigo.setText("");
+        txtNombre.setText("");
+        txtAno.setText("");
+        jRadioButton1.setSelected(true);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
