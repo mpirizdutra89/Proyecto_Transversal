@@ -105,11 +105,8 @@ public class MateriaData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
 
-            int exito = ps.executeUpdate();
+            ps.executeUpdate();
 
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Materia eliminada!!");
-            }
 
             ps.close();
         } catch (SQLException | NullPointerException ex) {
@@ -118,6 +115,24 @@ public class MateriaData {
         }
 
     }
+    
+    public void eliminarMateriaFisico(int id) {
+    String sql = "DELETE FROM materia WHERE idMateria = ?";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+
+        ps.executeUpdate();
+
+        ps.close();
+    } catch (SQLException | NullPointerException ex) {
+        Conexion.msjError.add("Materias: eliminarMateriaFisico ->" + ex.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materias");
+    }
+}
+    
+    
     /*METODO PARA LISTAR MATERIAS*/
     public List<Materia> listarMaterias() {
 

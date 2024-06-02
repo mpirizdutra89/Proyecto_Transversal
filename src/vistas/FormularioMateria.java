@@ -259,9 +259,15 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
     if (!codigo.isEmpty()) {
         try {
             int id = Integer.parseInt(codigo);
-            mData.eliminarMateria(id);
-            JOptionPane.showMessageDialog(null, "Materia eliminada exitosamente.");
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Desea realizar un borrado físico?", "Confirmar eliminación", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION){
+            mData.eliminarMateriaFisico(id);
+            JOptionPane.showMessageDialog(null, "La Materia ha sido eliminada exitosamente DE LA BASE DE DATOS.");
             limpiarCampos();
+            }else if (opcion == JOptionPane.NO_OPTION){
+                 mData.eliminarMateria(id);
+                JOptionPane.showMessageDialog(null, "La materia ha sido dada de baja.");
+            }
         } catch (NumberFormatException e) {
             JOptionPane.showMessageDialog(null, "El código debe ser un número entero válido.");
         }
@@ -365,6 +371,8 @@ public class FormularioMateria extends javax.swing.JInternalFrame {
         txtAno.setText("");
         jRadioButton1.setSelected(true);
     }
+        
+        
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
