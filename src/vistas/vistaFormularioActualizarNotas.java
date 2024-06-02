@@ -75,12 +75,18 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
                 jCBseleccionarAlumnoActionPerformed(evt);
             }
         });
+        jDesktopPane1.add(jCBseleccionarAlumno);
+        jCBseleccionarAlumno.setBounds(254, 98, 237, 26);
 
         jLabel1.setFont(new java.awt.Font("Roboto", 0, 14)); // NOI18N
         jLabel1.setText("Seleccionar un alumno:");
+        jDesktopPane1.add(jLabel1);
+        jLabel1.setBounds(77, 98, 165, 25);
 
         jLabel2.setFont(new java.awt.Font("Roboto", 0, 24)); // NOI18N
         jLabel2.setText("CARGA DE NOTAS");
+        jDesktopPane1.add(jLabel2);
+        jLabel2.setBounds(169, 6, 211, 40);
 
         jTMateria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -95,6 +101,9 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTMateria);
 
+        jDesktopPane1.add(jScrollPane1);
+        jScrollPane1.setBounds(6, 158, 522, 172);
+
         jBGuardar.setBackground(new java.awt.Color(0, 102, 0));
         jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar-el-archivo.png"))); // NOI18N
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
@@ -102,6 +111,8 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
                 jBGuardarActionPerformed(evt);
             }
         });
+        jDesktopPane1.add(jBGuardar);
+        jBGuardar.setBounds(98, 362, 80, 35);
 
         jBSalir.setBackground(new java.awt.Color(153, 0, 0));
         jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrar-sesion.png"))); // NOI18N
@@ -110,57 +121,8 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
                 jBSalirActionPerformed(evt);
             }
         });
-
-        jDesktopPane1.setLayer(jCBseleccionarAlumno, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jBGuardar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jBSalir, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(111, 111, 111)
-                .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(116, 116, 116))
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(77, 77, 77)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jCBseleccionarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(169, 169, 169)
-                        .addComponent(jLabel2)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCBseleccionarAlumno, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jBGuardar, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jBSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(39, 39, 39))
-        );
+        jDesktopPane1.add(jBSalir);
+        jBSalir.setBounds(325, 362, 80, 35);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -176,16 +138,46 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBSalirActionPerformed
+
+    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
+        int filaSelec = jTMateria.getSelectedRow();
+        if(filaSelec != -1){
+            Alumno a = (Alumno) jCBseleccionarAlumno.getSelectedItem();
+            int idMat = (Integer) tablaMaterias.getValueAt(filaSelec, 0);
+            String notaStr = tablaMaterias.getValueAt(filaSelec, 2).toString();
+
+            double nota = Double.parseDouble(notaStr);
+
+            if (nota > 10) {
+                JOptionPane.showMessageDialog(this, "La nota a ingresar no puede ser mayor a 10");
+                return;
+            }
+
+            if (!vistaDialogoSiNo()) {
+                return;
+            }
+
+            inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
+            borrarFilas();
+            JOptionPane.showMessageDialog(this,"Nota actualizada exitosamente");
+        }else{
+            JOptionPane.showMessageDialog(this,"Seleccione una materia para actualizar nota");
+        }
+    }//GEN-LAST:event_jBGuardarActionPerformed
+
     private void jCBseleccionarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCBseleccionarAlumnoActionPerformed
-        
+
         borrarFilas();
-        
+
         Alumno al = (Alumno) jCBseleccionarAlumno.getSelectedItem();
         listaInscripcion = inscData.obtenerInscripcionesPorAlumno(al.getIdAlumno());
-        
+
         if(listaInscripcion.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "El alumno no está inscrito en ninguna materia.");
-        JOptionPane.showMessageDialog(this, "Visite primero el formulario de inscripcion, gracias");
+            JOptionPane.showMessageDialog(this, "El alumno no está inscrito en ninguna materia.");
+            JOptionPane.showMessageDialog(this, "Visite primero el formulario de inscripcion, gracias");
         }else{
             for(Inscripcion insc : listaInscripcion){
                 tablaMaterias.addRow(new Object[]{
@@ -196,36 +188,6 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
             }
         }
     }//GEN-LAST:event_jCBseleccionarAlumnoActionPerformed
-
-    private void jBGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBGuardarActionPerformed
-        int filaSelec = jTMateria.getSelectedRow();
-            if(filaSelec != -1){
-            Alumno a = (Alumno) jCBseleccionarAlumno.getSelectedItem();
-            int idMat = (Integer) tablaMaterias.getValueAt(filaSelec, 0);
-            String notaStr = tablaMaterias.getValueAt(filaSelec, 2).toString();
-
-            double nota = Double.parseDouble(notaStr);
-            
-            if (nota > 10) {
-            JOptionPane.showMessageDialog(this, "La nota a ingresar no puede ser mayor a 10");
-            return;
-            }
-            
-            if (!vistaDialogoSiNo()) {
-            return;
-            }
-
-            inscData.actualizarNota(a.getIdAlumno(), idMat, nota);
-            borrarFilas();
-            JOptionPane.showMessageDialog(this,"Nota actualizada exitosamente");
-            }else{
-                JOptionPane.showMessageDialog(this,"Seleccione una materia para actualizar nota");
-            }
-    }//GEN-LAST:event_jBGuardarActionPerformed
-
-    private void jBSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBSalirActionPerformed
-        dispose();
-    }//GEN-LAST:event_jBSalirActionPerformed
 
     /**
      * @param args the command line arguments
