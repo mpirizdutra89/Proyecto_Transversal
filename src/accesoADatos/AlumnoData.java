@@ -25,7 +25,7 @@ public class AlumnoData {
     private static Connection conec = null;
 
     public AlumnoData() {
-
+        conec=null;
         conec = Conexion.getConexion();
     }
 
@@ -45,11 +45,12 @@ public class AlumnoData {
             ResultSet rs = ps.getGeneratedKeys();
             if (rs.next()) {
                 alumno.setIdAlumno(rs.getInt(1));
+                JOptionPane.showMessageDialog(null, "Alumno guardado con exito");
                 res = true;
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException  | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: guardarAlumno ->" + ex.getMessage());
         }
 
@@ -79,7 +80,7 @@ public class AlumnoData {
             }
             ps.close();
             res.close();
-        } catch (SQLException ex) {
+        } catch (SQLException  | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: BuscarAlumno ->" + ex.getMessage());
         }
 
@@ -112,7 +113,7 @@ public class AlumnoData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException  | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: BuscarAlumnoPorDni ->" + ex.getMessage());
         }
         return alumno;
@@ -136,7 +137,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null, "Alumno modificado con exito");
             }
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: modificarAlumno ->" + ex.getMessage());
         }
 
@@ -166,7 +167,7 @@ public class AlumnoData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException  | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: listarAlumnos ->" + ex.getMessage());
         }
         return alumnos;
@@ -184,7 +185,7 @@ public class AlumnoData {
                 JOptionPane.showMessageDialog(null, "Alumno Borrado!!");
             }
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException  | NullPointerException ex) {
             Conexion.msjError.add("Alumnos: eliminarAlumno ->" + ex.getMessage());
         }
     }

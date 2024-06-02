@@ -1,6 +1,6 @@
 package accesoADatos;
 
-import java.sql.Connection;
+import java.sql.Statement;
 import entidades.Inscripcion;
 import accesoADatos.Conexion;
 import entidades.Alumno;
@@ -15,7 +15,7 @@ import java.time.LocalDate;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
-import org.mariadb.jdbc.Statement;
+
 
 
 /**
@@ -32,6 +32,8 @@ public class InscripcionData {
 
     public InscripcionData() {
         conec = Conexion.getConexion();
+        alumData = new AlumnoData();
+        mateData = new MateriaData();
     }
     
     public void guardarInscripcion(Inscripcion insc){
@@ -41,7 +43,7 @@ public class InscripcionData {
         
         
         String sql = "INSERT INTO inscripcion (idAlumno, idMateria, nota) "
-                + "VALUES (?,?,?)";
+                + " VALUES (?,?,?)";
         try{
         ps = conec.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
         ps.setInt(1, insc.getAlumno().getIdAlumno());
@@ -51,13 +53,13 @@ public class InscripcionData {
         rs = ps.getGeneratedKeys();
         if(rs.next()){
             insc.setIdInscripcion(rs.getInt(1));
-            JOptionPane.showMessageDialog(null, "Inscripcion Registrada");
+            //JOptionPane.showMessageDialog(null, "Inscripcion Registrada");
         }
         
             ps.close();
             rs.close();
             
-        }catch(SQLException ex){
+        }catch(SQLException | NullPointerException ex){
         Conexion.msjError.add("IncripcionData:  guardarInscripcion() ->" + ex.getMessage());
         }
     }
@@ -88,7 +90,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -101,7 +103,10 @@ public class InscripcionData {
         ResultSet rs = null;
         PreparedStatement ps = null;
         
-        String query = "SELECT * FROM inscripcion WHERE idAlumno = ? ";
+        String query = "SELECT idInscripto,idAlumno, m.idMateria, m.nombre, nota "
+                     + "FROM inscripcion i JOIN materia m "
+                     + "ON (i.idMateria = m.idMateria) "
+                     + "WHERE idAlumno = ?";
         
         try {
             ps = conec.prepareStatement(query);
@@ -113,6 +118,8 @@ public class InscripcionData {
                 insc.setIdInscripcion(rs.getInt("idInscripto"));
                 Alumno al = alumData.buscarAlumno(rs.getInt("idAlumno"));
                 Materia mat = mateData.buscarMateria(rs.getInt("idMateria"));
+                mat.setNombre(rs.getString("nombre"));
+                
                 insc.setAlumno(al);
                 insc.setMateria(mat);
                 insc.setNota(rs.getDouble("nota"));
@@ -123,7 +130,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
         
@@ -136,9 +143,9 @@ public class InscripcionData {
         ResultSet rs = null;
         PreparedStatement ps = null;
         
-        String query = "SELECT inscripcion.idMateria, nombre, año FROM inscripcion,materia"
-                + "WHERE inscripcion.idMateria = materia.idMateria"
-                + "AND inscripcion.idAlumno = ?";
+        String query = " SELECT inscripcion.idMateria, nombre, año FROM inscripcion,materia "
+                + " WHERE inscripcion.idMateria = materia.idMateria "
+                + " AND inscripcion.idAlumno = ? ";
         
         try {
             ps = conec.prepareStatement(query);
@@ -156,7 +163,7 @@ public class InscripcionData {
             ps.close();
             rs.close();
             
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Logger.getLogger(InscripcionData.class.getName()).log(Level.SEVERE, null, ex);
         }
        return materiasC;
@@ -179,18 +186,19 @@ public class InscripcionData {
     
 
     //Los ultimos 4 metodos Martin Piriz
-    public ArrayList<Materia> obtenerMateriasNoCursadas() {
+    public ArrayList<Materia> obtenerMateriasNoCursadas( int idAlumno) {
         ArrayList<Materia> lista = new ArrayList<>();
         ResultSet res = null;
         PreparedStatement ps = null;
 
         inscripcion = null;
-        String consulta = "select * from materia where idMateria NOT IN (SELECT M.idMateria FROM materia M,inscripcion I WHERE M.idMateria=I.idMateria and estado=1) and estado=1;";
+        String consulta = "select * from materia where idMateria NOT IN (SELECT M.idMateria FROM materia M,inscripcion I WHERE M.idMateria=I.idMateria and  idAlumno=? and  estado=1) and estado=1;";
         try {
             ps = conec.prepareStatement(consulta);
+            ps.setInt(1, idAlumno);
 
             res = ps.executeQuery();
-            if (res.next()) {
+            while (res.next()) {
                 int idMateria = res.getInt("idMateria");
                 String nombre = res.getString("nombre");
                 int year = res.getInt("año");
@@ -199,10 +207,11 @@ public class InscripcionData {
                 lista.add(new Materia(idMateria, nombre, year, estado));
 
             }
+           
             ps.close();
             res.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("IncripcionData:  obtenerMateriasNoCursadas() ->" + ex.getMessage());
         }
 
@@ -225,7 +234,7 @@ public class InscripcionData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
 
             Conexion.msjError.add("IncripcionData: borrarInscripcionMateriaALumno() ->" + ex.getMessage());
         }
@@ -250,7 +259,7 @@ public class InscripcionData {
             }
             ps.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
 
             Conexion.msjError.add("MateriaData: actualizarNota() ->" + ex.getMessage());
         }
@@ -264,27 +273,28 @@ public class InscripcionData {
         PreparedStatement ps = null;
 
         inscripcion = null;
-        String consulta = "SELECT A.idAlumno,dni,apellido, nombre, fechaNacimiento, estado FROM inscripcion I,alumno A WHERE A.idAlumno=I.idAlumno and  idMateria=?";
+        String consulta = "SELECT A.idAlumno, A.dni, A.apellido, A.nombre, A.fechaNacimiento, A.estado FROM inscripcion I,alumno A WHERE A.idAlumno=I.idAlumno AND  I.idMateria=?";
 
         try {
             ps = conec.prepareStatement(consulta);
             ps.setInt(1, idMateria);
             res = ps.executeQuery();
-            if (res.next()) {
-                int idAlumno = res.getInt("idMateria");
-                int dni = res.getInt("dni");
-                String apellido = res.getString("apellido");
-                String nombre = res.getString("nombre");
-                LocalDate fechaNacimiento = res.getDate("fechaNacimiento").toLocalDate();
-                boolean estado = res.getBoolean("estado");
+            while (res.next()) {
+                Alumno alumno = new Alumno();
+                alumno.setIdAlumno(res.getInt("idAlumno"));
+                alumno.setDni(res.getInt("dni"));
+                alumno.setApellido(res.getString("apellido"));
+                alumno.setNombre(res.getString("nombre"));
+                alumno.setFechaNacimiento(res.getDate("fechaNacimiento").toLocalDate());
+                alumno.setEstado(res.getBoolean("estado"));
 
-                lista.add(new Alumno(idAlumno, dni, apellido, nombre, fechaNacimiento, estado));
+                lista.add(alumno);
 
             }
             ps.close();
             res.close();
 
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("IncripcionData:  obtenerAlumnoXMAteria(int idMateria) ->" + ex.getMessage());
         }
 

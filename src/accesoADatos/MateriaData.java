@@ -37,7 +37,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: guardarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -66,7 +66,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: buscarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -91,7 +91,7 @@ public class MateriaData {
             }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: modificarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
@@ -105,19 +105,34 @@ public class MateriaData {
             PreparedStatement ps = con.prepareStatement(sql);
             ps.setInt(1, id);
 
-            int exito = ps.executeUpdate();
+            ps.executeUpdate();
 
-            if (exito == 1) {
-                JOptionPane.showMessageDialog(null, "Materia eliminada!!");
-            }
 
             ps.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: eliminarMateria ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
 
     }
+    
+    public void eliminarMateriaFisico(int id) {
+    String sql = "DELETE FROM materia WHERE idMateria = ?";
+
+    try {
+        PreparedStatement ps = con.prepareStatement(sql);
+        ps.setInt(1, id);
+
+        ps.executeUpdate();
+
+        ps.close();
+    } catch (SQLException | NullPointerException ex) {
+        Conexion.msjError.add("Materias: eliminarMateriaFisico ->" + ex.getMessage());
+        JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materias");
+    }
+}
+    
+    
     /*METODO PARA LISTAR MATERIAS*/
     public List<Materia> listarMaterias() {
 
@@ -140,7 +155,7 @@ public class MateriaData {
             }
             ps.close();
             rs.close();
-        } catch (SQLException ex) {
+        } catch (SQLException | NullPointerException ex) {
             Conexion.msjError.add("Materias: listarMaterias ->" + ex.getMessage());
             JOptionPane.showMessageDialog(null, "Error al acceder a la tabla materia");
         }
