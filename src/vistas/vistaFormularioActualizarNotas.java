@@ -92,14 +92,17 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
         ));
         jScrollPane1.setViewportView(jTMateria);
 
-        jBGuardar.setText("Guardar");
+        jBGuardar.setBackground(new java.awt.Color(0, 102, 0));
+        jBGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/guardar-el-archivo.png"))); // NOI18N
         jBGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBGuardarActionPerformed(evt);
             }
         });
 
-        jBSalir.setText("Salir");
+        jBSalir.setBackground(new java.awt.Color(153, 0, 0));
+        jBSalir.setIcon(new javax.swing.ImageIcon(getClass().getResource("/recursos/cerrar-sesion.png"))); // NOI18N
+        jBSalir.setToolTipText("");
         jBSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jBSalirActionPerformed(evt);
@@ -146,7 +149,7 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jBGuardar)
                     .addComponent(jBSalir))
-                .addContainerGap(63, Short.MAX_VALUE))
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
         pack();
