@@ -66,7 +66,6 @@ public class vistaFormularioActualizarNotas extends javax.swing.JInternalFrame {
 
         setBackground(new java.awt.Color(102, 102, 255));
         setBorder(null);
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Carga de Notas");
 
         jLabel11.setText("CARGA DE NOTAS:");
